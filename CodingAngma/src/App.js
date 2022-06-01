@@ -1,34 +1,14 @@
 import './App.css';
+import Hello from './component/Hello';
+import Welcome from './component/Welcome';
 
 function App() {
-
-  const name = "Tom";
-  // const user = {
-  //   name: "Jane"
-  // }
-
-  const naver = {
-    name : "네이버",
-    url: "https://naver.com",
-  };
-
   return (
-    // class는 자바스크립트의 예약어 이기 때문에 className으로 쓴다.
     <div className="App">
-      {/* style은 객체로 전달해야 적용된다. */}
-      <h1 
-        style={{
-          // 문자열로 적어준다.
-          color: "#f0f",
-          // CamelCase로 적어준다.
-          backgroundColor : "green"
-      }}
-      >
-        {/* 중괄호 내부에서 변수를 사용할 수 있다. */}
-        Hello, {name}.<p>{2 + 3}</p> {/* 숫자나 문자는 잘 나오지만 boolean 타입이나 객체는 표현하지 못한다. */}
-        {/* <p>{user}</p>  에러 발생 */}
-      </h1>
-      <a href={naver.url}>{naver.name}</a>
+    <Hello />
+    <Welcome />
+    <Hello />
+    <Hello />
     </div>
   );
 }
