@@ -1,5 +1,11 @@
 import Hello from './component/Hello';
 
+// // const Hello = function () {
+// const Hello = () => {
+//     <p>Hello</p>
+// };
+
+// export default Hello;
 
 function Exercise() {
 
@@ -12,6 +18,22 @@ function Exercise() {
         name : "네이버",
         url: "https://naver.com",
     };
+
+    function showName() {
+        console.log("Mike");
+    }
+
+    function showAge(age) {
+        console.log(age);
+    }
+
+    // function showText(e) {
+    //     console.log(e.target.value);
+    // }
+
+    function showText(txt) {
+        console.log(txt);
+    }
 
     return (
         // class는 자바스크립트의 예약어 이기 때문에 className으로 쓴다.
@@ -41,6 +63,29 @@ function Exercise() {
                     opacity : 1,
             }}>Hello</h1>
             <div className={styles.box} >Hello</div>
+
+            <div>
+            <h1>Hello</h1>
+            <button onClick={showName}>Show name</button>
+            <button 
+                onClick={() => {
+                    showAge(10);
+                }}
+            >
+                Show age
+            </button>
+            {/* <input type="text" onChange={e => {
+                console.log(e.target.value);
+            }}/> */}
+
+            <input 
+                type="text" 
+                onChange={e => {
+                const txt = e.target.value;
+                showText(txt);
+            }}
+            />
+        </div>
 
         </div>
     );
