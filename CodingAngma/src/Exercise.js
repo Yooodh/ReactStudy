@@ -1,3 +1,6 @@
+import Hello from './component/Hello';
+
+
 function Exercise() {
 
     const name = "Tom";
@@ -27,6 +30,18 @@ function Exercise() {
             {/* <p>{user}</p>  에러 발생 */}
         </h1>
         <a href={naver.url}>{naver.name}</a>
+
+        <Hello />
+        <div className={styles.box}>App</div>
+
+        <h1 style={{
+                    color : '#f00',
+                    borderRight : '2px solid #000',
+                    marginBottom : '30px',
+                    opacity : 1,
+            }}>Hello</h1>
+            <div className={styles.box} >Hello</div>
+
         </div>
     );
 }
