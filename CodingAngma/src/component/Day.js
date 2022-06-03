@@ -1,13 +1,14 @@
 import dummy from "../db/data.json";
+import { useParams } from "react-router-dom"; // url에 포함된 값을 얻을 때 쓴다.
 
 export default function Day () {
     //dummy.words
-    const day = 1;
-    const wordList = dummy.words.filter(word => word.day === day); // 단어들에 필터를 걸어서 단어의 날짜 1로 만들기
-    console.log(wordList);
+    const { day } = useParams();
+    const wordList = dummy.words.filter(word => word.day === Number(day)); // 단어들에 필터를 걸어서 단어의 날짜 1로 만들기
 
     return (
     <>
+    <h2>Day {day}</h2>
         <table>
             <tbody>
                 
