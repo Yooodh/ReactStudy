@@ -1,5 +1,6 @@
 import dummy from "../db/data.json";
 import { useParams } from "react-router-dom"; // url에 포함된 값을 얻을 때 쓴다.
+import Word from "./Word";
 
 export default function Day () {
     //dummy.words
@@ -13,10 +14,7 @@ export default function Day () {
             <tbody>
                 
                 {wordList.map(word => ( // 1일치만 반복
-                    <tr key={word.id}>
-                        <td>{word.eng}</td>
-                        <td>{word.kor}</td>
-                    </tr>
+                    <Word word={word} key={word.id}/>
                 ))}
             </tbody>
         </table>
