@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 // import dummy from "../db/data.json" //더미 데이터 불러오기
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import useFetch from "../hooks/useFetch";
 
 export default function DayList() {
-    const [days, setDays] = useState([])
+    
+    const days = useFetch('http://localhost:3001/days')
+
+    // const [days, setDays] = useState([])
 
     // // Click 이벤트를 하나 만들고 클릭할 때 마다 state를 변경시키기
     // const [count, setCount] = useState(0);
@@ -40,17 +44,17 @@ export default function DayList() {
 
     // // console.log(dummy);
 
-    useEffect(() => {
-        // api 비동기 통신을 위해 fetch 이용
-        fetch('http://localhost:3001/days') // Promise 반환
-        .then(res => { // response는 http 응답이고 실제 json은 아니다.
-            return res.json(); // 그래서 json 메서드를 사용해준다. // 이렇게 하면 json으로 변환되고 Promise를 반환한다.
-        })
-        // 데이터 받기
-        .then(data => {
-            setDays(data);
-        });
-    }, []); 
+    // useEffect(() => {
+    //     // api 비동기 통신을 위해 fetch 이용
+    //     fetch('http://localhost:3001/days') // Promise 반환
+    //     .then(res => { // response는 http 응답이고 실제 json은 아니다.
+    //         return res.json(); // 그래서 json 메서드를 사용해준다. // 이렇게 하면 json으로 변환되고 Promise를 반환한다.
+    //     })
+    //     // 데이터 받기
+    //     .then(data => {
+    //         setDays(data);
+    //     });
+    // }, []); 
 
     return ( 
         <>
