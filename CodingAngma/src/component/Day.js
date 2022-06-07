@@ -28,9 +28,10 @@ export default function Day () {
     return (
     <>
     <h2>Day {day}</h2>
+    {/* days의 length가 0이면 Loading... 보여주기 */}
+    {words.length === 0 && <span>Loading...</span>}
         <table>
             <tbody>
-                
                 {/* {wordList.map(word => ( // 1일치만 반복 */}
                 {words.map(word => (
                     <Word word={word} key={word.id}/>

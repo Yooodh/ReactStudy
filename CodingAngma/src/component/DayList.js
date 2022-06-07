@@ -56,6 +56,12 @@ export default function DayList() {
     //     });
     // }, []); 
 
+    // days의 length가 0이면
+    if(days.length === 0) {
+        // Loging... 보여주기
+        return <span>Loging...</span>
+    }
+
     return ( 
         <>
     <ul className="list_day">
