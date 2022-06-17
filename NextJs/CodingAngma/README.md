@@ -5,13 +5,15 @@
 <li>4. 스태틱 파일을 지원한다.</li>
 
 Next js 모든 페이지 사전 렌더링 (Pre-rendering)
+기본적으로 모든 페이지 pre-render
+사전에 HTML 파일들을 만든다는 의미
 더 좋은 퍼포먼스 
 검색엔진최적화 (SEO)
 
-1. 정적 생성
+1. Static Generation : 정적 생성
 2. Server Side Rendering (SSR, Dynamic Rendering)
 
-차이점은 언제  html 파일을 생성하는가
+차이점은 언제 html 파일을 생성하는가
 
 [정적 생성]
 - 프로젝트가 빌드하는 시점에 html파일들이 생성
@@ -20,6 +22,15 @@ Next js 모든 페이지 사전 렌더링 (Pre-rendering)
 - 정적 생성된 페이지들은 CDN에 캐시
 - getStaticProps / getStaticPaths
 
-[서버사이드 랜더링]은 매 요청마다 html을 생성
+미리 만들어 두는 경우
+<li>마케팅 페이지</li>
+<li>블로그 게시물</li>
+<li>제품 목록</li>
+<li>도움말, 문서</li>
+
+[서버사이드 랜더링] 은 매 요청마다 html을 생성
 - 항상 최신 상태 유지
 - getServerSideProps
+
+<li>관리자 페이지</li>
+<li>분석 차트</li>
