@@ -5,7 +5,7 @@ import { Loader } from 'semantic-ui-react';
 import Item from '../../src/component/Item';
 import Head from 'next/dist/shared/lib/head';
 
-const Post = ({item}) => {
+const Post = ({item, name}) => {
     // const router = useRouter(); // item을 props로 받아와서 필요 없다.
     // const { id } = router.query; // item을 props로 받아와서 필요 없다.
 
@@ -50,6 +50,7 @@ const Post = ({item}) => {
                     <title>{item.name}</title>
                     <meta name='description' content={item.description}></meta>
                 </Head>
+                {name} 환경 입니다.
                 <Item item={item} />
                 </>
             )}
@@ -71,6 +72,7 @@ export async function getServerSideProps(context) { // context는 여러가지 �
     return {
         props: {
             item: data, // 받아온 응답 값을 item에 넣어준다.
+            name : process.env.name
         },
     };
 }

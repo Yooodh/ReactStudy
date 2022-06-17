@@ -1,4 +1,4 @@
-import * as Axios from 'axios';
+import Axios from 'axios';
 import Head from 'next/head'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -9,17 +9,18 @@ import { Loader } from 'semantic-ui-react';
 
 export default function Home() {
 
-  const [list, setlist] = useState([]);
+  const [list, setList] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
   const API_URL = 
-  "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+  // "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
+  process.env.NEXT_PUBLIC_API_URL;
 
   function getData() {
-    Axios.get(API_URL).then(res => {
+    Axios.get(API_URL).then((res) => {
       console.log(res.data);
-      setlist(res.data);
+      setList(res.data);
 
       // api호출이 끝나고 isLoding을 false로 바꾼다.
       setIsLoading(false);
@@ -28,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     getData();
-  },[])
+  }, []);
 
   return (
   <div>
