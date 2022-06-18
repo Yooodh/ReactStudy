@@ -80,9 +80,9 @@ export async function getStaticPaths() {
     const apiUrl = process.env.apiUrl;
 
     const res = await Axios.get(apiUrl);
-  
+
     const data = res.data;
-  
+
 
     return {
         // paths: [
