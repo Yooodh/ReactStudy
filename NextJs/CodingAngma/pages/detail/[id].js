@@ -32,6 +32,20 @@ const Post = ({item, name}) => {
     //     };
     // }, [id]);
 
+    const router = useRouter ();
+
+    // console.log(router.isFallback);
+
+    if (router.isFallback) {
+        return (
+            <div style={{ padding: "100px 0"}}>
+                <Loader active inline="centered">
+                    Loading
+                </Loader>
+            </div>
+        )
+    }
+
     return (
         <>
             {/* item을 props로 받아와서 필요 없다. */}
@@ -62,12 +76,25 @@ const Post = ({item, name}) => {
 export default Post;
 
 export async function getStaticPaths() {
+
+    const apiUrl = process.env.apiUrl;
+
+    const res = await Axios.get(apiUrl);
+  
+    const data = res.data;
+  
+
     return {
-        paths: [
-            { params: { id: '740' } },
-            { params: { id: '730' } },
-            { params: { id: '729' } }
-        ],
+        // paths: [
+        //     { params: { id: '740' } },
+        //     { params: { id: '730' } },
+        //     { params: { id: '729' } }
+        // ],
+        paths : data.slice(0, 9).map(item => ({
+            params : {
+                id: item.id.toString(),
+            }
+        })),
         fallback: true,
     };
 }
