@@ -1,3 +1,6 @@
+# CosmeticsStore
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=300&section=header&text=CosmeticsStore&fontSize=90)
+
 ### create-next-app 으로 설치하면
 <li>1. 컴파일과 번들링이 자동으로 된다.(webpack 과 babel)</li>
 <li>2. 자동 리프레쉬 기능으로 수정하면 홤녀에 바로 반영된다.</li>
@@ -34,3 +37,5 @@ Next js 모든 페이지 사전 렌더링 (Pre-rendering)
 
 <li>관리자 페이지</li>
 <li>분석 차트</li>
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
