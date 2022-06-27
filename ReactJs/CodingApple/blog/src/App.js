@@ -36,16 +36,16 @@ function App() {
       </div>
 
       {/* 가나다순 정렬하기 */}
-      <button onClick={ () => {
+      {/* <button onClick={ () => {
         let copy = [...글제목];
-        글제목변경(copy.sort())}}>가나다순 정렬</button>
+        글제목변경(copy.sort())}}>가나다순 정렬</button> */}
 
-      <button onClick={ () => { 
+      {/* <button onClick={ () => { 
         // state가 array/object면 독립적 복사본을 만들어서 수정해야 한다.
         let copy = [...글제목];
         copy[0] = '여자코트 추천'
         글제목변경(copy);
-      }}>글수정</button>
+      }}>글수정</button> */}
 
       <div className='list'>
         <h4>{ 글제목[0] } <span onClick={ () => { 
@@ -61,8 +61,52 @@ function App() {
         <h4>{ 글제목[2] }</h4>
         <p>2월 17일 발행</p>
       </div>
+
+      {/* 컴포넌트 만드는 법 
+        1. fucntion 만들기
+        2. return() 안에 html 담기
+        3. <함수명></함수명> 쓰기 */}
+
+      {/* <div className='modal'>
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div> */}
+
+      {/* <Modal></Modal> */}
+      <Modal />
+
     </div>
   );
 }
+
+const Modal = () => {
+  return (
+    <div className='modal'>
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+  )
+}
+
+// function Modal() {
+//   return (
+//     // 의미없는 <div> 대신 <></> 사용가능
+//     <>
+//       <div className='modal'>
+//         <h4>제목</h4>
+//         <p>날짜</p>
+//         <p>상세내용</p>
+//       </div>
+//     </>
+//   )
+// }
+
+/** 컴포넌트로 만들면 좋은 예
+ * 1. 반복적인 html 축약할 때
+ * 2. 큰 페이지들
+ * 3. 자주 변경되는 것들
+ */
 
 export default App;
