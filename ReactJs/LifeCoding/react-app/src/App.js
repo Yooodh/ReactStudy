@@ -102,12 +102,19 @@ function Update(props) {
             placeholder='title'
             value={title}
             onChange={(event) => {
-              console.log(event.target.value);
+              setTitle(event.target.value);
             }}
           ></input>
         </p>
         <p>
-          <textarea name='body' placeholder='body' value={body}></textarea>
+          <textarea
+            name='body'
+            placeholder='body'
+            value={body}
+            onChange={(event) => {
+              setBody(event.target.value);
+            }}
+          ></textarea>
         </p>
         <p>
           <input type='submit' value='Update'></input>
@@ -146,7 +153,7 @@ function App() {
           href={'/update/' + id}
           onClick={(event) => {
             event.preventDefault();
-            setMode('Update');
+            setMode('UPDATE');
           }}
         >
           Update
@@ -171,6 +178,8 @@ function App() {
       ></Create>
     );
   } else if (mode === 'UPDATE') {
+    let title,
+      body = null;
     for (let i = 0; i < topics.length; i++) {
       if (topics[i].id === id) {
         title = topics[i].title;
@@ -178,7 +187,13 @@ function App() {
       }
     }
     content = (
-      <Update title={title} body={body} onUpdate={(title, body) => {}}></Update>
+      <Update
+        title={title}
+        body={body}
+        onUpdate={(title, body) => {
+          console.log(title, body);
+        }}
+      ></Update>
     );
   }
 
