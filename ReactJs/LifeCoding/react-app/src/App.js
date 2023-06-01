@@ -192,6 +192,16 @@ function App() {
         body={body}
         onUpdate={(title, body) => {
           console.log(title, body);
+          const newTopics = [...topics];
+          const updatedTopic = { id: id, title: title, body: body };
+          for (let i = 0; i < newTopics.length; i++) {
+            if (newTopics[i].id === id) {
+              newTopics[i] = updatedTopic;
+              break;
+            }
+          }
+          setTopics(newTopics);
+          setMode('READ');
         }}
       ></Update>
     );
