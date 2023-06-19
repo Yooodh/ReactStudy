@@ -2,25 +2,16 @@ import React, { useEffect, useState } from 'react';
 import Counter from './components/Counter';
 import KossieCounter from './components/KossieCounter';
 import Login from './components/Login';
+import Movie from './components/Movie';
+import Toggle from './components/Toggle';
 
 function App() {
   const [buttonName, setButtonName] = useState('클릭');
-  const clickButton = () => {
-    setButtonName('click');
-  };
 
-  const [condition, setCondition] = useState(false);
-  const toggle = () => setCondition(!condition);
-  useEffect(() => {
-    console.log(condition);
-  }, [condition]);
-
-  const renderCondition = condition ? 'True' : 'False';
   return (
     <div className='App'>
       <h1>Kossie Coder</h1>
-      <div>{renderCondition}</div>
-      <button onClick={toggle}>Toggle</button>
+      <Toggle />
 
       <br />
       <br />
@@ -28,7 +19,6 @@ function App() {
       <Counter click='click1' />
       <Counter click={buttonName} />
       <Counter />
-      <button onClick={clickButton}>Click</button>
 
       <br />
       <br />
@@ -38,6 +28,8 @@ function App() {
       <br />
       <br />
       <Login />
+
+      <Movie />
     </div>
   );
 }
