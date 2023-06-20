@@ -1,24 +1,8 @@
-const Movie = () => {
-  const movies = [
-    { title: 'kossie coder1', year: 2001 },
-    { title: 'kossie coder2', year: 2002 },
-    { title: 'kossie coder3', year: 2003 },
-    { title: 'kossie coder4', year: 2004 },
-  ];
-
-  const renderMovies = movies.map((movie) => {
-    return (
-      <div className='movie' key={movie.title}>
-        <div className='movie-title'>{movie.title}</div>
-        <div className='movie-year'>{movie.year}</div>
-      </div>
-    );
-  });
-
+const Movie = ({ movie }) => {
   return (
-    <div>
-      <h1>Movie list</h1>
-      {renderMovies}
+    <div className='movie'>
+      <div className='movie-title'>{movie.title}</div>
+      <div className='movie-year'>{movie.year}</div>
     </div>
   );
 };
