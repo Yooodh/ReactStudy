@@ -28,12 +28,15 @@ function App() {
   const addMovie = (event) => {
     event.preventDefault();
     setMovies([
+      // 구조분해할당
       ...movies,
       {
         title: movieTitle,
         year: movieYear,
       },
     ]);
+    setMovieTitle('');
+    setMovieYear('');
   };
 
   return (
