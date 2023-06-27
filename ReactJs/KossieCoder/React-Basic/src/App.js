@@ -5,11 +5,11 @@
 // // import Toggle from './components/Toggle';
 import { useEffect, useState } from 'react';
 import Movie from './components/Movie';
+import MovieForm from './components/MovieForm';
 
 function App() {
   // const [buttonName, setButtonName] = useState('클릭');
-  const [movieTitle, setMovieTitle] = useState('');
-  const [movieYear, setMovieYear] = useState('');
+
   const [movies, setMovies] = useState([
     { title: 'kossie coder1', year: 2001 },
     { title: 'kossie coder2', year: 2002 },
@@ -17,26 +17,16 @@ function App() {
     { title: 'kossie coder4', year: 2004 },
   ]);
 
-  useEffect(() => {
-    console.log('render');
-  });
-
   const renderMovies = movies.map((movie) => {
     return <Movie movie={movie} key={movie.title} />;
   });
 
-  const addMovie = (event) => {
-    event.preventDefault();
+  const addMovie = (movie) => {
     setMovies([
       // 구조분해할당
       ...movies,
-      {
-        title: movieTitle,
-        year: movieYear,
-      },
+      movie,
     ]);
-    setMovieTitle('');
-    setMovieYear('');
   };
 
   return (
@@ -60,23 +50,7 @@ function App() {
       <br />
       <Login /> */}
       <h1>Movie list</h1>
-      <form onSubmit={addMovie}>
-        <input
-          tupe='text'
-          value={movieTitle}
-          placeholder='영화제목'
-          onChange={(e) => setMovieTitle(e.target.value)}
-        ></input>
-        <br />
-        <input
-          tupe='text'
-          value={movieYear}
-          placeholder='개봉년도'
-          onChange={(e) => setMovieYear(e.target.value)}
-        ></input>
-        <br />
-        <button type='submit'>영화추가</button>
-      </form>
+      <MovieForm addMovie={addMovie} />
       {renderMovies}
     </div>
   );
