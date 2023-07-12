@@ -31,7 +31,6 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <input type='text'></input>
     </nav>
   );
 };
