@@ -18,7 +18,9 @@ function App() {
     <>
       <div>{number}</div>
 
-      <button onClick={double}>Submit</button>
+      <button className='btn btn-primary' onClick={double}>
+        Submit
+      </button>
     </>
   );
 }
