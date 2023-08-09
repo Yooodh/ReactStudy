@@ -11,7 +11,7 @@ const comments = [
   },
   {
     name: '강민경',
-    comment: '저도 이랙트 배워보고 싶어요!!',
+    comment: '저도 리액트 배워보고 싶어요!!',
   },
 ];
 
