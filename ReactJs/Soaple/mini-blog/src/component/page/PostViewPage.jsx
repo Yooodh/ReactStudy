@@ -38,6 +38,12 @@ const TitleText = styled.p`
   white-space: pre-wrap;
 `;
 
+const ContentText = styled.p`
+  font-size: 20px;
+  line-height: 32px;
+  white-space: pre-wrap;
+`;
+
 const CommentLabel = styled.p`
   font-size: 16px;
   font-weight: 500;
