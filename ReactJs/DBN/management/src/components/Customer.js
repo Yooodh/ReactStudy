@@ -6,7 +6,7 @@ class Customer extends React.Component {
       <div>
         <CustomerProfile
           id={this.props.id}
-          img={this.props.image}
+          image={this.props.image}
           name={this.props.name}
         />
         <CustomerInfo
