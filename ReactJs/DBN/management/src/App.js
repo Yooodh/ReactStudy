@@ -7,7 +7,20 @@ import {
   TableBody,
   TableRow,
   TableCell,
+  Paper,
 } from '@mui/material';
+import { withStyles } from '@mui/material';
+
+const styles = (theme) => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 1080,
+  },
+});
 
 const customers = [
   {
@@ -39,9 +52,10 @@ const customers = [
 
 class App extends Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div>
-        <Table>
+      <Paper className={classes.root}>
+        <Table className={classes.table}>
           <TableHead>
             <TableRow>
               <TableCell>번호</TableCell>
@@ -67,8 +81,8 @@ class App extends Component {
             })}
           </TableBody>
         </Table>
-      </div>
+      </Paper>
     );
   }
 }
-export default App;
+export default withStyles(styles)(App);
