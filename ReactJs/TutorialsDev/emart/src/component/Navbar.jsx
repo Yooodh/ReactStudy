@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = () => {
   return (
     <div>
-      <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+      <nav className='navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm'>
         <div className='container'>
           <a className='navbar-brand fw-bold fs-4' href='#'>
             LA COLLECTION
