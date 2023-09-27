@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Skeleton from 'react-loading-skeleton';
 
 const Products = () => {
   const [data, setData] = useState([]);
@@ -24,20 +25,63 @@ const Products = () => {
   }, []);
 
   const Loading = () => {
-    return <>Loading....</>;
+    return (
+      <>
+        <div className='col-md-3'>
+          <Skeleton height={350} />
+        </div>
+        <div className='col-md-3'>
+          <Skeleton height={350} />
+        </div>
+        <div className='col-md-3'>
+          <Skeleton height={350} />
+        </div>
+        <div className='col-md-3'>
+          <Skeleton height={350} />
+        </div>
+      </>
+    );
+  };
+
+  const filterProduct = (cat) => {
+    const updateList = data.filter((x) => x.category === cat);
+    setFilter(updateList);
   };
 
   const ShowProducts = () => {
     return (
       <>
         <div className='buttons d-flex justify-content-center mb-5 pb-5'>
-          <button className='btn btn-outline-dark me-2'>All</button>
-          <button className='btn btn-outline-dark me-2'>Men's Clothing</button>
-          <button className='btn btn-outline-dark me-2'>
+          <button
+            className='btn btn-outline-dark me-2'
+            onClick={() => setFilter(data)}
+          >
+            All
+          </button>
+          <button
+            className='btn btn-outline-dark me-2'
+            onClick={() => filterProduct("men's clothing")}
+          >
+            Men's Clothing
+          </button>
+          <button
+            className='btn btn-outline-dark me-2'
+            onClick={() => filterProduct("women's clothing")}
+          >
             Women's Clothing
           </button>
-          <button className='btn btn-outline-dark me-2'>Jewelery</button>
-          <button className='btn btn-outline-dark me-2'>Electronic</button>
+          <button
+            className='btn btn-outline-dark me-2'
+            onClick={() => filterProduct('jewelery')}
+          >
+            Jewelery
+          </button>
+          <button
+            className='btn btn-outline-dark me-2'
+            onClick={() => filterProduct('electronics')}
+          >
+            Electronic
+          </button>
         </div>
         {filter.map((product) => {
           return (
