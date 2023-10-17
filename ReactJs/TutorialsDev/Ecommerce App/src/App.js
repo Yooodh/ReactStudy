@@ -1,8 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
 
 function App() {
-  return <div className='text-red-600 text-4xl'>Hello World</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default App;
