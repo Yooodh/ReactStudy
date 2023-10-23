@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from '../../components/Hero';
 import Products from '../../components/Products';
 import FeatureCard from '../../components/FeatureCard';
+import Stats from '../../components/StatCard';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       </div>
       <Products />
       <FeatureCard />
+      <Stats />
     </>
   );
 };
