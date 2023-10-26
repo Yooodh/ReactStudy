@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Products = ({ products = [] }) => {
   return (
@@ -9,7 +10,10 @@ const Products = ({ products = [] }) => {
             console.log(product, 'product');
             const { id, title, price, description, category, image } = product;
             return (
-              <div className='lg:w-1/4 md:w-1/2 p-2 w-full border border-opacity-50 mb-4 cursor-pointer'>
+              <Link
+                to={`/products/${id}`}
+                className='lg:w-1/4 md:w-1/2 p-2 w-full border border-opacity-50 mb-4 cursor-pointer'
+              >
                 <a className='block relative h-48 rounded overflow-hidden'>
                   <img
                     alt={title}
@@ -26,7 +30,7 @@ const Products = ({ products = [] }) => {
                   </h2>
                   <p className='mt-1 text-md font-semibold'>${price}</p>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
