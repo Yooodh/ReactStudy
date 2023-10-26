@@ -9,7 +9,7 @@ const Products = ({ products = [] }) => {
             console.log(product, 'product');
             const { id, title, price, description, category, image } = product;
             return (
-              <div className='lg:w-1/4 md:w-1/2 p-2 w-full border border-opacity-50'>
+              <div className='lg:w-1/4 md:w-1/2 p-2 w-full border border-opacity-50 mb-4 cursor-pointer'>
                 <a className='block relative h-48 rounded overflow-hidden'>
                   <img
                     alt={title}
