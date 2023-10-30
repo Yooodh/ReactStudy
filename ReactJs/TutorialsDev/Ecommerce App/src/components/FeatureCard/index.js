@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeatureCard = (cards = [1, 2, 3]) => {
+const FeatureCard = ({ cards = [1, 2, 3] }) => {
   return (
     <section className='text-gray-600 body-font'>
       <div className='container px-5 py-24 mx-auto'>
@@ -31,8 +31,8 @@ const FeatureCard = (cards = [1, 2, 3]) => {
                         <path d='M22 12h-4l-3 9L9 3l-3 9H2'></path>
                       </svg>
                     </div>
-                    <h2 className='text-gray-900 text-lg title-font font-medium'>
-                      Shooting Stars
+                    <h2 className='text-gray-900 text-lg title-font font-medium capitalize'>
+                      {card || 'Example card'}
                     </h2>
                   </div>
                   <div className='flex-grow'>
