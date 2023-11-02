@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const Product = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState({});
   console.log(id, 'id');
 
@@ -16,7 +17,33 @@ const Product = () => {
     fetchProduct();
   }, []);
 
-  // !Object.keys(product).length > 0 && <div>Product Not Found</div>;
+  const handleCart = (product, redirect) => {
+    console.log(product);
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const isProductExist = cart.find((item) => item.id === product.id);
+    if (isProductExist) {
+      const updatedCart = cart.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+          };
+        }
+        return item;
+      });
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+    } else {
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([...cart, { ...product, quantity: 1 }])
+      );
+    }
+
+    if (redirect) {
+      navigate('/cart');
+    }
+  };
+
   if (!Object.keys(product).length > 0) return <div>Loading.....</div>;
 
   return (
@@ -172,10 +199,16 @@ const Product = () => {
               </span>
 
               <div className='flex'>
-                <button className='flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mr-2'>
+                <button
+                  className='flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded mr-2'
+                  onClick={() => handleCart(product, true)}
+                >
                   Buy it now
                 </button>
-                <button className='flex ml-auto border border-indigo-500  py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded'>
+                <button
+                  className='flex ml-auto border border-indigo-500  py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded'
+                  onClick={() => handleCart(product)}
+                >
                   Add to cart
                 </button>
               </div>
