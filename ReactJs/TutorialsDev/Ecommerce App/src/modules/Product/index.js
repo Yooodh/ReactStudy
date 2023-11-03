@@ -39,6 +39,7 @@ const Product = () => {
       );
     }
 
+    alert('product added to cart');
     if (redirect) {
       navigate('/cart');
     }
