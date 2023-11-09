@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import About from './About';
+import Contact from './Contact';
 import Service from './Service';
 
 const Home = () => {
@@ -42,6 +43,7 @@ const Home = () => {
       </section>
       <About />
       <Service />
+      <Contact />
     </div>
   );
 };
