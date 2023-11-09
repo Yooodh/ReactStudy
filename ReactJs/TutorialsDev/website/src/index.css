@@ -26,3 +26,21 @@ code {
 .progress:hover {
   transform: scale(1.1);
 }
+
+/* Cards */
+.card img {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 5px;
+}
+.card {
+  transition: 0.5s ease;
+}
+
+.card:hover {
+  background-color: #0d6efd;
+  color: white;
+  box-shadow: 5px 5px 10px #2379f8;
+  cursor: pointer;
+}
