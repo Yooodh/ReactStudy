@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.pro {
+  position: absolute;
+  padding: 5px;
+  color: white;
+}
+
+.progress {
+  height: 30px;
+  transition: 0.5s ease;
+}
+
+.progress:hover {
+  transform: scale(1.1);
+}
