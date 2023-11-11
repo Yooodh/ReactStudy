@@ -1,6 +1,23 @@
-import { DATA } from '../';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import DATA from '../Data';
 
 const Product = () => {
+  const cardItem = (item) => {
+    return (
+      <div className='card my-5 py-4' key={item.id} style={{ width: '18rem' }}>
+        <img src={item.img} className='card-img-top' alt={item.title} />
+        <div className='card-body text-center'>
+          <h5 className='card-title'>{item.title}</h5>
+          <p className='lead'>${item.price}</p>
+          <Link to={`/products/${item.id}`} className='btn btn-primary'>
+            Buy Now
+          </Link>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div>
       <div className='container py-5'>
@@ -11,7 +28,9 @@ const Product = () => {
           </div>
         </div>
       </div>
-      <div className='row'>{DATA.map(cardItem)}</div>
+      <div className='container'>
+        <div className='row justify-content-around'>{DATA.map(cardItem)}</div>
+      </div>
     </div>
   );
 };
