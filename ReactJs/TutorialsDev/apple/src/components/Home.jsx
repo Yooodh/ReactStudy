@@ -1,3 +1,5 @@
+import Product from './Product';
+
 const Home = () => {
   return (
     <div>
@@ -93,6 +95,7 @@ const Home = () => {
           <span className='visually-hidden'>Next</span>
         </button>
       </div>
+      <Product />
     </div>
   );
 };
