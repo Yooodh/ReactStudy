@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DATA from '../Data';
 
 const ProductDetail = () => {
+  const [cartBtn, setCartBtn] = useState('Add to Cart');
   const proid = useParams();
   const proDetail = DATA.filter((x) => x.id == proid.id);
   const product = proDetail[0];
   console.log(product);
+
+  const handleCart = (product) => {
+    if (cartBtn === 'Add to Cart') {
+      setCartBtn('Remove from Cart');
+    } else {
+      setCartBtn('Add to Cart');
+    }
+  };
 
   return (
     <>
@@ -20,8 +29,11 @@ const ProductDetail = () => {
             <hr />
             <h2 className='my-4'>${product.price}</h2>
             <p className='lead'>{product.desc}</p>
-            <button className='btn btn-outline-primary my-5'>
-              Add to Cart
+            <button
+              onClick={() => handleCart(product)}
+              className='btn btn-outline-primary my-5'
+            >
+              {cartBtn}
             </button>
           </div>
         </div>
