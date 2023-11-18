@@ -1,4 +1,4 @@
-export const addItems = (product) => {
+export const addItem = (product) => {
   return {
     type: 'ADDITEM',
     payload: product,
