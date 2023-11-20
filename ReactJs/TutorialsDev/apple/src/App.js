@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import { Route, Routes } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/products' element={<Product />} />
         <Route path='/products/:id' element={<ProductDetail />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/checkout' element={<Checkout />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
