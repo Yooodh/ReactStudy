@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../../styles/HeaderStyles.css';
 import Logo from '../../images/logo.svg';
 
@@ -35,18 +35,18 @@ const Header = () => {
       <Divider />
       <ul className='mobile-navigation'>
         <li>
-          <Link activeClassName='active' to={'/'}>
+          <NavLink activeClassName='active' to={'/'}>
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to={'/menu'}>Menu</Link>
+          <NavLink to={'/menu'}>Menu</NavLink>
         </li>
         <li>
-          <Link to={'/about'}>About</Link>
+          <NavLink to={'/about'}>About</NavLink>
         </li>
         <li>
-          <Link to={'/contact'}>Contact</Link>
+          <NavLink to={'/contact'}>Contact</NavLink>
         </li>
       </ul>
     </Box>
@@ -79,18 +79,20 @@ const Header = () => {
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               <ul className='navigation-menu'>
                 <li>
-                  <Link activeClassName='active' to={'/'}>
+                  <NavLink activeClassName='active' to={'/'}>
                     Home
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to={'/menu'}>Menu</Link>
+                  <NavLink activeClassName='active' to={'/menu'}>
+                    Menu
+                  </NavLink>
                 </li>
                 <li>
-                  <Link to={'/about'}>About</Link>
+                  <NavLink to={'/about'}>About</NavLink>
                 </li>
                 <li>
-                  <Link to={'/contact'}>Contact</Link>
+                  <NavLink to={'/contact'}>Contact</NavLink>
                 </li>
               </ul>
             </Box>
