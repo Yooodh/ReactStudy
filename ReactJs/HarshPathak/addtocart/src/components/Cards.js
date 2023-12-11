@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import CardsData from './CardsData';
+import Cardsdata from './CardsData';
 import './style.css';
 
 const Cards = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState(Cardsdata);
 
   return (
     <div className='container mt-3'>
@@ -26,12 +26,13 @@ const Cards = () => {
                   className='mt-3'
                 />
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </Card.Text>
-                  <Button variant='primary'>Go somewhere</Button>
+                  <Card.Title>{element.rname}</Card.Title>
+                  <Card.Text>Price : ₹ {element.price}</Card.Text>
+                  <div className='button_div d-flex justify-content-center'>
+                    <Button variant='primary' className='col-lg-12'>
+                      Add to Cart
+                    </Button>
+                  </div>
                 </Card.Body>
               </Card>
             </>
