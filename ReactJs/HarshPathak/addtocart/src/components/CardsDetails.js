@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { DLT } from '../redux/actions/action';
+import { DLT, ADD, REMOVE } from '../redux/actions/action';
 
 const CardsDetails = () => {
   const [data, setData] = useState([]);
@@ -26,9 +26,19 @@ const CardsDetails = () => {
     setData(comparedata);
   };
 
+  // add data
+  const send = (e) => {
+    dispatch(ADD(e));
+  };
+
   const dlt = (id) => {
     dispatch(DLT(id));
     history('/');
+  };
+
+  // remove one
+  const remove = (item) => {
+    dispatch(REMOVE(item));
   };
 
   useEffect(() => {
@@ -72,9 +82,19 @@ const CardsDetails = () => {
                             color: '#111',
                           }}
                         >
-                          <span style={{ fontSize: 24 }}>-</span>
+                          <span
+                            style={{ fontSize: 24 }}
+                            onClick={() => remove(ele)}
+                          >
+                            -
+                          </span>
                           <span style={{ fontSize: 22 }}>{ele.qnty}</span>
-                          <span style={{ fontSize: 24 }}>+</span>
+                          <span
+                            style={{ fontSize: 24 }}
+                            onClick={() => send(ele)}
+                          >
+                            +
+                          </span>
                         </div>
                       </td>
 
