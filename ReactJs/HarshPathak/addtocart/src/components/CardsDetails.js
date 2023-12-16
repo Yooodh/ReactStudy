@@ -70,7 +70,7 @@ const CardsDetails = () => {
                           <strong>Dishes</strong> : {ele.address}
                         </p>
                         <p>
-                          <strong>Total</strong> : ₹ 300
+                          <strong>Total</strong> : ₹ {ele.price * ele.qnty}
                         </p>
 
                         <div
@@ -84,7 +84,11 @@ const CardsDetails = () => {
                         >
                           <span
                             style={{ fontSize: 24 }}
-                            onClick={() => remove(ele)}
+                            onClick={
+                              ele.qnty <= 1
+                                ? () => dlt(ele.id)
+                                : () => remove(ele)
+                            }
                           >
                             -
                           </span>
