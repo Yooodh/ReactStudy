@@ -4,7 +4,13 @@ import axios from 'axios';
 
 function Home() {
   const [data, setData] = useState([]);
-  console.log(data);
+  // console.log(data);
+
+  const [pageData, setPageData] = useState([]);
+
+  const [page, setPage] = useState(1);
+  const [pageCount, setPageCount] = useState(0);
+  console.log(pageCount);
 
   const getdata = async () => {
     const response = await axios.get('https://dummyjson.com/products');
@@ -12,10 +18,33 @@ function Home() {
     setData(response.data.products);
   };
 
+  // handle next
+  const handleNext = () => {
+    if (page === pageCount) return page;
+    setPage(page + 1);
+  };
+
+  // handle previous
+  const handlePrevious = () => {
+    if (page === 1) return page;
+    setPage(page - 1);
+  };
+
   useEffect(() => {
     getdata();
-  }, []);
+  }, [page]);
 
+  useEffect(() => {
+    const pagedatacount = Math.ceil(data.length / 5);
+    setPageCount(pagedatacount);
+
+    if (page) {
+      const LIMIT = 5;
+      const skip = LIMIT * page; // 5 * 1 = 5
+      const dataskip = data.slice(0, 5);
+      setPageData(dataskip);
+    }
+  }, [data]);
   return (
     <>
       <div className='container'>
@@ -61,21 +90,14 @@ function Home() {
 
         <div className='d-flex justify-content-end'>
           <Pagination>
-            <Pagination.First />
-            <Pagination.Prev />
-            <Pagination.Item>{1}</Pagination.Item>
-            <Pagination.Ellipsis />
+            <Pagination.Prev onClick={handlePrevious} disabled={page === 1} />
 
-            <Pagination.Item>{10}</Pagination.Item>
-            <Pagination.Item>{11}</Pagination.Item>
-            <Pagination.Item active>{12}</Pagination.Item>
-            <Pagination.Item>{13}</Pagination.Item>
-            <Pagination.Item disabled>{14}</Pagination.Item>
+            {/* <Pagination.Item>{11}</Pagination.Item> */}
 
-            <Pagination.Ellipsis />
-            <Pagination.Item>{20}</Pagination.Item>
-            <Pagination.Next />
-            <Pagination.Last />
+            <Pagination.Next
+              onClick={handleNext}
+              disabled={page === pageCount}
+            />
           </Pagination>
         </div>
       </div>
@@ -84,3 +106,5 @@ function Home() {
 }
 
 export default Home;
+
+// slice(0,4) = (start, end - 1)
