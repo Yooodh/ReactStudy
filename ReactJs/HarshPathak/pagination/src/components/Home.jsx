@@ -2,19 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Table, Spinner, Pagination } from 'react-bootstrap';
 import axios from 'axios';
 
-function Home() {
+const Home = () => {
   const [data, setData] = useState([]);
-  // console.log(data);
 
   const [pageData, setPageData] = useState([]);
-
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(0);
-  console.log(pageCount);
 
   const getdata = async () => {
     const response = await axios.get('https://dummyjson.com/products');
-    // console.log(response.data.products);
     setData(response.data.products);
   };
 
@@ -25,7 +21,7 @@ function Home() {
   };
 
   // handle previous
-  const handlePrevious = () => {
+  const handlePrevios = () => {
     if (page === 1) return page;
     setPage(page - 1);
   };
@@ -40,8 +36,8 @@ function Home() {
 
     if (page) {
       const LIMIT = 5;
-      const skip = LIMIT * page; // 5 * 1 = 5
-      const dataskip = data.slice(0, 5);
+      const skip = LIMIT * page; // 5 *2 = 10
+      const dataskip = data.slice(page === 1 ? 0 : skip - LIMIT, skip);
       setPageData(dataskip);
     }
   }, [data]);
@@ -49,6 +45,7 @@ function Home() {
     <>
       <div className='container'>
         <h1>User Data</h1>
+
         <div className='table_div mt-3'>
           <Table striped bordered hover>
             <thead>
@@ -60,8 +57,8 @@ function Home() {
               </tr>
             </thead>
             <tbody>
-              {data.length > 0 ? (
-                data.map((element, index) => {
+              {pageData.length > 0 ? (
+                pageData.map((element, index) => {
                   return (
                     <>
                       <tr>
@@ -87,13 +84,23 @@ function Home() {
             </tbody>
           </Table>
         </div>
-
         <div className='d-flex justify-content-end'>
           <Pagination>
-            <Pagination.Prev onClick={handlePrevious} disabled={page === 1} />
-
-            {/* <Pagination.Item>{11}</Pagination.Item> */}
-
+            <Pagination.Prev onClick={handlePrevios} disabled={page === 1} />
+            {Array(pageCount)
+              .fill(null)
+              .map((ele, index) => {
+                return (
+                  <>
+                    <Pagination.Item
+                      active={page === index + 1 ? true : false}
+                      onClick={() => setPage(index + 1)}
+                    >
+                      {index + 1}
+                    </Pagination.Item>
+                  </>
+                );
+              })}
             <Pagination.Next
               onClick={handleNext}
               disabled={page === pageCount}
@@ -103,8 +110,6 @@ function Home() {
       </div>
     </>
   );
-}
+};
 
 export default Home;
-
-// slice(0,4) = (start, end - 1)
