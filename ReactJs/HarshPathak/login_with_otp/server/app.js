@@ -8,9 +8,9 @@ const PORT = 4002;
 app.use(express.json());
 app.use(cors());
 
-// app.get('/', (req, res) => {
-//   res.status(200).json('server start');
-// });
+app.get('/', (req, res) => {
+  res.status(200).json('server start');
+});
 
 app.listen(PORT, () => {
   console.log(`Server start at Port No: ${PORT}`);
