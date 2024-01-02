@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/mix.css';
 import { ToastContainer, toast } from 'react-toastify';
-import { useState } from 'react';
 
 export const Register = () => {
   const [passshow, setPassShow] = useState(false);

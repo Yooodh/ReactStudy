@@ -1,9 +1,9 @@
 import './App.css';
-import Login from './page/Login';
-import Register from './page/Register';
-import Dashboard from './page/Dashboard';
-import Otp from './page/Otp';
-import Error from './page/Error';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Otp from './pages/Otp';
+import Error from './pages/Error';
 import Headers from './components/Header';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
