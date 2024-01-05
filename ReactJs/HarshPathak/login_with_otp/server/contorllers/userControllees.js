@@ -18,6 +18,12 @@ exoprts.userregister = async (req, res) => {
         email,
         password,
       });
+
+      // here password hasing
+      const storeData = await userregister.save();
+      res.status(200).json(storeData);
     }
-  } catch (error) {}
+  } catch (error) {
+    res.status(400).json({ error: 'Invalid Details', error });
+  }
 };
