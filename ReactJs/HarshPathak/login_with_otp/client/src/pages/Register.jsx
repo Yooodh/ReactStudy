@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/mix.css';
+import { registerfunction } from '../services/Apis';
 import { ToastContainer, toast } from 'react-toastify';
 
 export const Register = () => {
@@ -18,7 +19,7 @@ export const Register = () => {
   };
 
   // register data
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { fname, email, password } = inputdata;
 
@@ -33,7 +34,8 @@ export const Register = () => {
     } else if (password.length < 6) {
       toast.error('password length minimum 6 character');
     } else {
-      toast.success('user register');
+      const response = await registerfunction(inputdata);
+      console.log(response);
     }
   };
 
