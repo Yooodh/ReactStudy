@@ -9,7 +9,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const removeToCart = (id) => {
-    // dispatch remove action
+    // dispatch a remove action
     dispatch(remove(id));
   };
 
