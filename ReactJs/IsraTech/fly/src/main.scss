@@ -112,3 +112,40 @@ h2 {
   padding: 1rem 0;
   color: var(--blackColor);
 }
+
+// navBar section styling 
+.navBar {
+  position: fixed;
+  flex-direction: column;
+  width: 100%;
+  z-index: 1000;
+
+  .navBarOne, .navBarTwo {
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .navBarOne {
+    background: var(--SecondaryColor);
+
+    .icon:hover {
+      color: var(--PrimaryColor);
+    }
+
+    .atb {
+      gap: 1rem;
+
+      span {
+        color:var(--blackColor);
+        font-size: 13px;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--PrimaryColor);
+          font-size: 700;
+        }
+      }
+    }
+  }
+}

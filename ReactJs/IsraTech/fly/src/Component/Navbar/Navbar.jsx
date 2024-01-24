@@ -4,8 +4,10 @@ import React from 'react';
 import { SiConsul } from 'react-icons/si';
 import { BsPhoneVibrate } from 'react-icons/bs';
 import { AiOutlineGlobal } from 'react-icons/ai';
+import { CgMenuGridO } from 'react-icons/cg';
 
 // Imported Images
+import logo from '../../assets/logo.png';
 
 const Navbar = () => {
   return (
@@ -27,9 +29,25 @@ const Navbar = () => {
           <span>Sign Up</span>
         </div>
       </div>
-      <div className='navBartTwo'>
+      <div className='navBartTwo flex'>
         <div className='logoDiv'>
-          <img src='' alt='' />
+          <img src={logo} className='Logo' />
+        </div>
+
+        <div className='navBarMenu'>
+          <ul className='menu flex'>
+            <li className='listItem'>Home</li>
+            <li className='listItem'>About</li>
+            <li className='listItem'>Offers</li>
+            <li className='listItem'>Seats</li>
+            <li className='listItem'>Destinations</li>
+          </ul>
+
+          <button className='btn flex btnOne'>Contact</button>
+        </div>
+        {/* <button className='btn flex btnOne'>Contact</button> */}
+        <div className='toggleIcon'>
+          <CgMenuGridO />
         </div>
       </div>
     </div>
