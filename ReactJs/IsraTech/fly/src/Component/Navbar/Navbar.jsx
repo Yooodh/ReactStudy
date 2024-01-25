@@ -26,7 +26,7 @@ const Navbar = () => {
         </div>
         <div className='atb flex'>
           <span>Sign In</span>
-          <span>Sign Up</span>
+          <span>Sign Out</span>
         </div>
       </div>
       <div className='navBartTwo flex'>
@@ -45,9 +45,9 @@ const Navbar = () => {
 
           <button className='btn flex btnOne'>Contact</button>
         </div>
-        {/* <button className='btn flex btnOne'>Contact</button> */}
+        <button className='btn flex btnTwo'>Contact</button>
         <div className='toggleIcon'>
-          <CgMenuGridO />
+          <CgMenuGridO className='icon' />
         </div>
       </div>
     </div>
