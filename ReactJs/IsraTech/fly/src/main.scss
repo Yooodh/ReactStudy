@@ -170,7 +170,7 @@ h2 {
         background: var(--SecondaryColor);
         padding: 1.5rem;
         top: 5rem; 
-        right: 50%;
+        right: -50%;
         width: 80%;
         transform: translateX(50%);
         z-index: 2000;
@@ -214,5 +214,11 @@ h2 {
         color: var(--blackColor);
       }
     }
+    .showNavBar {
+      right: 50%;
+      transition: .5s ease-in-out;
+    }
   }
 }
+
+// Home section styling

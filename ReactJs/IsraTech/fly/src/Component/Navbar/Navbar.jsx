@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Imported Icons
 import { SiConsul } from 'react-icons/si';
@@ -10,6 +10,15 @@ import { CgMenuGridO } from 'react-icons/cg';
 import logo from '../../assets/logo.png';
 
 const Navbar = () => {
+  // remove the NavBar in the small width screens
+  const [active, setActive] = useState('navBarMenu');
+  const showNavBar = () => {
+    setActive('navBarMenu showNavBar');
+  };
+  const removeNavBar = () => {
+    setActive('navBarMenu');
+  };
+
   return (
     <div className='NavBar flex'>
       <div className='navBarOne flex'>
@@ -34,19 +43,31 @@ const Navbar = () => {
           <img src={logo} className='Logo' />
         </div>
 
-        <div className='navBarMenu'>
+        <div className={active}>
           <ul className='menu flex'>
-            <li className='listItem'>Home</li>
-            <li className='listItem'>About</li>
-            <li className='listItem'>Offers</li>
-            <li className='listItem'>Seats</li>
-            <li className='listItem'>Destinations</li>
+            <li onClick={removeNavBar} className='listItem'>
+              Home
+            </li>
+            <li onClick={removeNavBar} className='listItem'>
+              About
+            </li>
+            <li onClick={removeNavBar} className='listItem'>
+              Offers
+            </li>
+            <li onClick={removeNavBar} className='listItem'>
+              Seats
+            </li>
+            <li onClick={removeNavBar} className='listItem'>
+              Destinations
+            </li>
           </ul>
 
-          <button className='btn flex btnOne'>Contact</button>
+          <button onClick={removeNavBar} className='btn flex btnOne'>
+            Contact
+          </button>
         </div>
         <button className='btn flex btnTwo'>Contact</button>
-        <div className='toggleIcon'>
+        <div onClick={showNavBar} className='toggleIcon'>
           <CgMenuGridO className='icon' />
         </div>
       </div>
