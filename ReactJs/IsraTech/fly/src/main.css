@@ -156,7 +156,7 @@ h2 {
     background: var(--SecondaryColor);
     padding: 1.5rem;
     top: 5rem;
-    right: 50%;
+    right: -50%;
     width: 80%;
     transform: translateX(50%);
     z-index: 2000;
@@ -191,4 +191,40 @@ h2 {
 .navBar .navBarTwo .toggleIcon .icon {
   font-size: 30px;
   color: var(--blackColor);
+}
+.navBar .navBarTwo .showNavBar {
+  right: 50%;
+  transition: 0.5s ease-in-out;
+}
+
+.home {
+  padding-top: 10rem;
+  text-align: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+.home .maingText {
+  color: var(--blackColor);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 2.5rem;
+}
+.home .homeImages {
+  width: 100%;
+  margin: 1rem auto 0;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 5rem;
+}
+.home .videoDiv {
+  width: 100%;
+}
+.home .videoDiv .video {
+  border-radius: 10rem;
+}
+.home .plane {
+  position: absolute;
+  width: 100%;
+  top: -10;
 }/*# sourceMappingURL=main.css.map */
