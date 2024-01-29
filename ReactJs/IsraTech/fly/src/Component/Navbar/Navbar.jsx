@@ -19,6 +19,17 @@ const Navbar = () => {
     setActive('navBarMenu');
   };
 
+  // add a background color to the second Navbar
+  const [npBg, addBg] = useState('navBarTwo');
+  const addBgColor = () => {
+    if (window.scrollY >= 10) {
+      addBg('navBarTwo navbar_With_Bg');
+    } else {
+      addBg('navBarTwo');
+    }
+  };
+  window.addEventListener('scroll', addBgColor);
+
   return (
     <div className='NavBar flex'>
       <div className='navBarOne flex'>
