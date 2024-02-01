@@ -1,3 +1,4 @@
+// import the font to use
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Spartan:wght@300;400;500&display=swap');
 
 * {
@@ -50,6 +51,7 @@ li  {
 
 .icon {
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .flex {
@@ -159,8 +161,8 @@ h2 {
     transition: .3s ease-in-out;
 
     .logoDiv {
-      .logo{
-        width: 20px;
+      .Logo{
+        width: 20%;   
       }
     }
 
@@ -169,12 +171,13 @@ h2 {
         position: absolute;
         background: var(--SecondaryColor);
         padding: 1.5rem;
+        border-radius: 10px;
         top: 5rem; 
         right: -50%;
         width: 80%;
         transform: translateX(50%);
         z-index: 2000;
-        box-shadow: rgba(0,0,0,0.1) 0px 10px 15px -3px, rgba(0,0,0,0.05) 0px 4px 6px -2px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
         border: 3px solid var(--whiteColor);
         transition: .4s ease-in-out; 
 
@@ -234,7 +237,7 @@ h2 {
   gap: 2rem;
   flex-direction: column;
 
-  .maingText {
+  .mainText {
     color: var(--blackColor);
     font-weight: 700;
     font-size: 15px;
@@ -261,7 +264,7 @@ h2 {
   .plane {
     position: absolute;
     width: 100%;
-    top:  -10;
+    top:  -10%;
   }
 }
 
@@ -296,53 +299,59 @@ h2 {
           transition: .4s ease;
         }
       }
+
+      .active {
+        background: var(--PrimaryColor);
+        color: var(--whiteColor);
+        font-weight: 500;
+      }
     }
 
-  .searchInput {
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1.5rem;
+    .searchInputs {
+      width: 100%;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1.5rem;
 
-    .singleInput {
-      .iconDiv {
-        padding: 16px 10px;
-        border-radius: 3rem;
-        background: var(--SecondaryColor);
-        margin-right: 1rem;
+      .singleInput {
+        .iconDiv {
+          padding: 16px 10px;
+          border-radius: 3rem;
+          background: var(--SecondaryColor);
+          margin-right: 1rem;
 
-        .icon {
-          color: var(--blackColor);
-          opacity: .7;
-        }
-      }
-
-      .texts {
-        h4 {
-          padding-top: 0;
-          padding-bottom: .7rem;
-          color: var(--blackColor);
-          font-weight: 700;
+          .icon {
+            color: var(--blackColor);
+            opacity: .7;
+          }
         }
 
-        input {
-          width: 95%;
-          border: none;
-          outline: none;
-          background: transparent;
+        .texts {
+          h4 {
+            padding-top: 0;
+            padding-bottom: .7rem;
+            color: var(--blackColor);
+            font-weight: 700;
+          }
 
-          &::placeholder{
-            font-size: 12px;
-            opacity: .5;
+          input {
+            width: 95%;
+            border: none;
+            outline: none;
+            background: transparent;
+
+            &::placeholder{
+              font-size: 12px;
+              opacity: .5;
+            }
           }
         }
       }
     }
   }
-  }
 }
 
-// Search section styling
+// Support section styling
 .support {
   .sectionContainer{
     .titlesDiv {
@@ -390,6 +399,62 @@ h2 {
         img{
           width: 100%;
           max-width: 420px;
+        }
+      }
+    }
+  }
+}
+
+// Info section styling
+.info {
+  background: var(--SecondaryColor);
+
+  .infoContainer {
+    .titleDiv {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+      justify-content: space-between;
+    }
+
+    .cardsDiv {
+      gap: 1.5rem;
+      margin-top: 3rem;
+
+      .singleCard {
+        background: var(--whiteColor);
+        padding: 3rem 2rem;
+        border-radius: 10rem;
+        gap: 1rem;
+        text-align: center;
+        margin: auto;
+        height: 320px;
+        width: 90%;
+        max-width: 250px;
+
+        .iconDiv{
+          justify-content: center;
+          margin: auto;
+          background: var(--PrimaryColor);
+          width: max-content;
+          height: 55px;
+          padding: 1rem;
+          border: 3rem;
+
+          .icon {
+            color: var(--whiteColor);
+          }
+        }
+
+        .cardTitle {
+          color: var(--blackColor);
+          font-weight: 700;
+        }
+        .colorOne {
+          background: var(--colorOne);
+        }
+        .colorTwo {
+          background: var(--colorTwo);
         }
       }
     }

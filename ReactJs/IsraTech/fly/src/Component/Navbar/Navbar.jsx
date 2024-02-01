@@ -20,7 +20,7 @@ const Navbar = () => {
   };
 
   // add a background color to the second Navbar
-  const [npBg, addBg] = useState('navBarTwo');
+  const [noBg, addBg] = useState('navBarTwo');
   const addBgColor = () => {
     if (window.scrollY >= 10) {
       addBg('navBarTwo navbar_With_Bg');
@@ -31,7 +31,7 @@ const Navbar = () => {
   window.addEventListener('scroll', addBgColor);
 
   return (
-    <div className='NavBar flex'>
+    <div className='navBar flex'>
       <div className='navBarOne flex'>
         <div>
           <SiConsul />
@@ -49,7 +49,7 @@ const Navbar = () => {
           <span>Sign Out</span>
         </div>
       </div>
-      <div className='navBartTwo flex'>
+      <div className={noBg}>
         <div className='logoDiv'>
           <img src={logo} className='Logo' />
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Imported Icon
+// Imported Icons
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { RiAccountPinCircleLine } from 'react-icons/ri';
 import { RxCalendar } from 'react-icons/rx';
@@ -10,20 +10,20 @@ const Search = () => {
     <div className='search container section'>
       <div className='sectionContainer grid'>
         <div className='btns flex'>
-          <div className='signleBta'>
+          <div className='singleBtn'>
             <span>Economy</span>
           </div>
 
-          <div className='signleBta'>
+          <div className='singleBtn'>
             <span>Business Class</span>
           </div>
 
-          <div className='signleBta'>
+          <div className='singleBtn'>
             <span>First Class</span>
           </div>
         </div>
 
-        <div className='sarchInputs flex'>
+        <div className='searchInputs flex'>
           {/* Single Input */}
           <div className='singleInput flex'>
             <div className='iconDiv'>
