@@ -48,6 +48,7 @@ li {
 
 .icon {
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .flex {
@@ -147,14 +148,15 @@ h2 {
   position: fixed;
   transition: 0.3s ease-in-out;
 }
-.navBar .navBarTwo .logoDiv .logo {
-  width: 20px;
+.navBar .navBarTwo .logoDiv .Logo {
+  width: 20%;
 }
 @media screen and (max-width: 768px) {
   .navBar .navBarTwo .navBarMenu {
     position: absolute;
     background: var(--SecondaryColor);
     padding: 1.5rem;
+    border-radius: 10px;
     top: 5rem;
     right: -50%;
     width: 80%;
@@ -208,7 +210,7 @@ h2 {
   gap: 2rem;
   flex-direction: column;
 }
-.home .maingText {
+.home .mainText {
   color: var(--blackColor);
   font-weight: 700;
   font-size: 15px;
@@ -231,7 +233,7 @@ h2 {
 .home .plane {
   position: absolute;
   width: 100%;
-  top: -10;
+  top: -10%;
 }
 
 .search .sectionContainer {
@@ -262,39 +264,44 @@ h2 {
   font-weight: 500;
   transition: 0.4s ease;
 }
-.search .sectionContainer .searchInput {
+.search .sectionContainer .btns .active {
+  background: var(--PrimaryColor);
+  color: var(--whiteColor);
+  font-weight: 500;
+}
+.search .sectionContainer .searchInputs {
   width: 100%;
   justify-content: center;
   flex-direction: column;
   gap: 1.5rem;
 }
-.search .sectionContainer .searchInput .singleInput .iconDiv {
+.search .sectionContainer .searchInputs .singleInput .iconDiv {
   padding: 16px 10px;
   border-radius: 3rem;
   background: var(--SecondaryColor);
   margin-right: 1rem;
 }
-.search .sectionContainer .searchInput .singleInput .iconDiv .icon {
+.search .sectionContainer .searchInputs .singleInput .iconDiv .icon {
   color: var(--blackColor);
   opacity: 0.7;
 }
-.search .sectionContainer .searchInput .singleInput .texts h4 {
+.search .sectionContainer .searchInputs .singleInput .texts h4 {
   padding-top: 0;
   padding-bottom: 0.7rem;
   color: var(--blackColor);
   font-weight: 700;
 }
-.search .sectionContainer .searchInput .singleInput .texts input {
+.search .sectionContainer .searchInputs .singleInput .texts input {
   width: 95%;
   border: none;
   outline: none;
   background: transparent;
 }
-.search .sectionContainer .searchInput .singleInput .texts input::-moz-placeholder {
+.search .sectionContainer .searchInputs .singleInput .texts input::-moz-placeholder {
   font-size: 12px;
   opacity: 0.5;
 }
-.search .sectionContainer .searchInput .singleInput .texts input::placeholder {
+.search .sectionContainer .searchInputs .singleInput .texts input::placeholder {
   font-size: 12px;
   opacity: 0.5;
 }
@@ -338,4 +345,196 @@ h2 {
 .support .sectionContainer .infoDiv .imgDiv img {
   width: 100%;
   max-width: 420px;
+}
+
+.info {
+  background: var(--SecondaryColor);
+}
+.info .infoContainer .titleDiv {
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.info .infoContainer .cardsDiv {
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.info .infoContainer .cardsDiv .singleCard {
+  background: var(--whiteColor);
+  padding: 3rem 2rem;
+  border-radius: 10rem;
+  gap: 1rem;
+  text-align: center;
+  margin: auto;
+  height: 320px;
+  width: 90%;
+  max-width: 250px;
+}
+.info .infoContainer .cardsDiv .singleCard .iconDiv {
+  justify-content: center;
+  margin: auto;
+  background: var(--PrimaryColor);
+  width: -moz-max-content;
+  width: max-content;
+  height: 55px;
+  padding: 1rem;
+  border: 3rem;
+}
+.info .infoContainer .cardsDiv .singleCard .iconDiv .icon {
+  color: var(--whiteColor);
+}
+.info .infoContainer .cardsDiv .singleCard .cardTitle {
+  color: var(--blackColor);
+  font-weight: 700;
+}
+.info .infoContainer .cardsDiv .singleCard .colorOne {
+  background: var(--colorOne);
+}
+.info .infoContainer .cardsDiv .singleCard .colorTwo {
+  background: var(--colorTwo);
+}
+
+.lounge .sectionContainer {
+  gap: 1.5rem;
+}
+.lounge .sectionContainer .imgDiv {
+  margin: auto;
+}
+.lounge .sectionContainer .imgDiv img {
+  width: 100%;
+  max-width: 430px;
+}
+.lounge .sectionContainer .textDiv .grids {
+  margin-top: 1rem;
+  gap: 1.5rem;
+}
+.lounge .sectionContainer .textDiv .grids .singleGrid .gridTitle {
+  display: block;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--blackColor);
+}
+
+.travelers .sectionContainer {
+  text-align: center;
+}
+.travelers .sectionContainer .travelersContainer {
+  margin-top: 1rem;
+  gap: 1.5rem;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler {
+  position: relative;
+  height: 320px;
+  width: 85%;
+  max-width: 250px;
+  overflow: hidden;
+  border-radius: 10rem;
+  gap: 1rem;
+  margin: auto;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName {
+  position: absolute;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage .destinationImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage .destinationImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName .destinationImage {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage .travelerImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage .travelerImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName .travelerImage {
+  height: 50px;
+  width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  bottom: 30px;
+  left: 40%;
+  transform: translateX(-50%);
+  border: 5px solid rgba(225, 225, 225, 0.637);
+  transition: var(--transition);
+  animation: animated 2.3s infinite;
+}
+@keyframes animated {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage .travelerName, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage .travelerName, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName .travelerName {
+  bottom: -100%;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  background: var(--whiteColor);
+  padding: 1.5rem 1rem;
+  transition: var(--transition);
+  animation: animatedBorders 2.3s infinite;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage .travelerName span, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage .travelerName span, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName .travelerName span {
+  color: black;
+  color: black;
+  font-weight: 700;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage .travelerName p, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage .travelerName p, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName .travelerName p {
+  color: var(--PrimaryColor);
+  font-style: italic;
+}
+@keyframes animatedBorders {
+  0% {
+    border-radius: 0rem;
+  }
+  50% {
+    border-radius: 2rem;
+  }
+  100% {
+    border-radius: 0rem;
+  }
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage:hover .travelerName, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage:hover .travelerName, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName:hover .travelerName {
+  bottom: 0;
+  transition: 1s ease-in-out;
+}
+.travelers .sectionContainer .travelersContainer .singleTraveler .destinationImage:hover .travelerImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerImage:hover .travelerImage, .travelers .sectionContainer .travelersContainer .singleTraveler .travelerName:hover .travelerImage {
+  bottom: 110px;
+  transition: 1s ease-in-out;
+}
+
+.subscribe {
+  background: var(--SecondaryColor);
+}
+.subscribe .sectionContainer {
+  text-align: center;
+}
+.subscribe .sectionContainer .inputDiv {
+  margin-top: 1rem;
+  flex-direction: column;
+  background: var(--whiteColor);
+  border-radius: 1rem;
+}
+.subscribe .sectionContainer .inputDiv input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 1rem 0.5rem;
+}
+.subscribe .sectionContainer .inputDiv input::-moz-placeholder {
+  font-size: 13px;
+  opacity: 0.5;
+}
+.subscribe .sectionContainer .inputDiv input::placeholder {
+  font-size: 13px;
+  opacity: 0.5;
+}
+.subscribe .sectionContainer .inputDiv .btn {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

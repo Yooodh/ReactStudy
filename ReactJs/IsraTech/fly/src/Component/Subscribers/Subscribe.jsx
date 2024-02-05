@@ -1,7 +1,17 @@
 import React from 'react';
 
 const Subscribe = () => {
-  return <div>Subscribe</div>;
+  return (
+    <div className='subcsribe section'>
+      <div className='sectionContainer container'>
+        <h2>Subscribe Newsletters & get Letest News</h2>
+        <div className='inputDiv flex'>
+          <input type='text' placeholder='Enter your email address' />
+          <button className='btn'>Subscribe</button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Subscribe;

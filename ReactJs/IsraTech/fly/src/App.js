@@ -19,7 +19,7 @@ const App = () => {
       <Info />
       <Lounge />
       <Travelers />
-      {/* <Subscribe /> */}
+      <Subscribe />
       {/* <Footer /> */}
     </div>
   );
