@@ -8,7 +8,7 @@
   font-family: 'Spartan', sans-serif;
 }
 
-:root{
+:root {
   --PrimaryColor : hsl(225, 50%, 48%);
   --SecondaryColor : hsl(180, 17%, 95%);
   --colorOne : hsl(15, 74%, 70%);
@@ -514,6 +514,7 @@ h2 {
 
         .destinationImage, .travelerImage, .travelerName {
           position: absolute;
+        }
 
           .destinationImage{
             height: 100%;
@@ -592,7 +593,7 @@ h2 {
             .travelerImage {
               bottom : 110px;
               transition: 1s ease-in-out;
-            }
+            
           }
         }
       }
@@ -638,12 +639,12 @@ h2 {
   .sectionContainer {
     gap: 2.5rem;
 
-    .gridOne{
+    .gridOne {
       gap: 1rem;
       justify-content: center;
       margin: auto;
 
-      .logoDiv{
+      .logoDiv {
         .Logo {
           width: 20%;
         }
@@ -704,3 +705,151 @@ h2 {
     text-align: center;
   }
 }
+
+// MEDIA SCREEN STYLING
+@media screen and (min-width: 480px) {
+  // Home section styling
+  .home {
+    padding-top: 12rem;
+  }
+
+  // Search section styling
+  .search {
+    .sectionContainer {
+      .searchInputs {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+  }
+
+  // Travel section styling
+  .travelers {
+    .sectionContainer {
+      .travelersContainer {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+  }
+
+  // Subscribe section styling
+  .subscribe {
+    .sectionContainer {
+      max-width: 80%;
+      margin: auto;
+
+      .inputDiv {
+        flex-direction: row;
+        padding: 0 .5rem;
+        border-radius: 3rem;
+      }
+    }
+  }
+
+  // Footer section styling
+  .footer {
+    .sectionContainer {
+      align-items: flex-start;
+      grid-template-columns: repeat(2,1fr);
+
+      .footerLinks {
+        justify-content: center;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 570px) {
+  // Home section styling
+  .home {
+    .mainText {
+      width: 80%;
+    }
+
+    .homeImages{
+      .video {
+        border-radius: 15rem;
+      }
+
+      .plane {
+        position: absolute;
+        width: 95%;
+        top: -8%;
+      }
+    }
+  }
+  
+  // Search section styling
+  .search {
+    .sectionContainer {
+      .btns {
+        border-radius: 3rem;
+        flex-direction: row;
+      }
+    }
+  }
+
+  // Support section styling
+  .support {
+    .sectionContainer {
+      .infoDiv {
+        .textDiv {
+          margin-top: 2rem;
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+    }
+  }
+
+  // Info section styling
+  .info {
+    .infoContainer {
+      .titleDiv {
+        flex-direction: row;
+        h2 {
+          text-align: left;
+          max-width: 500px;
+        }
+      }
+
+      .cardsDiv {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+  }
+
+  // Lounge section styling
+  .lounge{
+    .sectionContainer {
+      .textDiv {
+        .grids {
+          grid-template-columns: repeat(2,1fr);
+        }
+      }
+    }
+  }
+
+  // Subscribe section styling
+  .subscribe {
+    .sectionContainer {
+      .inputDiv {
+        justify-content: space-between;
+
+        .btn {
+          max-width: max-content;
+        }
+      }
+    }
+  }
+
+  // Footer section styling
+  .footer {
+    .sectionContainer {
+      padding-top: 2rem;
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
+}
+
+

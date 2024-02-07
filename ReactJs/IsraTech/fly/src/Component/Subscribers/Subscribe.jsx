@@ -2,7 +2,7 @@ import React from 'react';
 
 const Subscribe = () => {
   return (
-    <div className='subcsribe section'>
+    <div className='subscribe section'>
       <div className='sectionContainer container'>
         <h2>Subscribe Newsletters & get Letest News</h2>
         <div className='inputDiv flex'>
