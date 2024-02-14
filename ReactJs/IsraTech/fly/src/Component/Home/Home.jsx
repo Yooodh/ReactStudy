@@ -13,6 +13,7 @@ const Home = () => {
   useEffect(() => {
     Aos.init({ duration: 2000 });
   }, []);
+
   return (
     <div className='home flex container'>
       <div className='mainText'>
