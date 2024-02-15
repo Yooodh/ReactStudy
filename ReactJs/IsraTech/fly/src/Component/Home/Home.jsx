@@ -22,7 +22,11 @@ const Home = () => {
         </h1>
       </div>
 
-      <div className='homeImages flex'>
+      <div
+        data-aos='fade-down'
+        data-aos-duration='2500'
+        className='homeImages flex'
+      >
         <div className='videoDiv'>
           <video src={video} autoPlay muted loop className='video'></video>
         </div>
