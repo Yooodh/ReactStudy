@@ -70,10 +70,30 @@ const Navbar = () => {
           >
             <div className='w-full h-[320px] flex flex-col items-baseline pt-8 gap-4 text-[#12222E]'>
               <ul>
-                <a href='#home'>Home</a>
-                <a href='#about'>About Us</a>
-                <a href='#products'>Products</a>
-                <a href='#contant-us'>Contant Us</a>
+                <a
+                  href='#home'
+                  className='font-montserrat leading-normal text-lg text-[#b2ab9f] no-underline'
+                >
+                  Home
+                </a>
+                <a
+                  href='#about'
+                  className='font-montserrat leading-normal text-lg text-[#b2ab9f] no-underline'
+                >
+                  About Us
+                </a>
+                <a
+                  href='#products'
+                  className='font-montserrat leading-normal text-lg text-[#b2ab9f] no-underline'
+                >
+                  Products
+                </a>
+                <a
+                  href='#contant-us'
+                  className='font-montserrat leading-normal text-lg text-[#b2ab9f] no-underline'
+                >
+                  Contant Us
+                </a>
               </ul>
             </div>
           </div>
