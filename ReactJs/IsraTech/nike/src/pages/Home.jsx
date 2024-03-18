@@ -4,6 +4,9 @@ import Hero from '../components/Hero';
 import Products from '../components/Products';
 import About_us from '../components/About_us';
 import Offer from '../components/Offer';
+import Testimonials from '../components/Testimonials';
+import Contact_us from '../components/Contact_us';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -13,6 +16,9 @@ const Home = () => {
       <Products />
       <About_us />
       <Offer />
+      <Testimonials />
+      <Contact_us />
+      <Footer />
     </div>
   );
 };
