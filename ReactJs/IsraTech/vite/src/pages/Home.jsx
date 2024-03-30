@@ -1,5 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import chair1 from '../assets/chair_image1.png';
+import chair2 from '../assets/chair_image2.png';
 
 const Home = () => {
   return (
@@ -53,12 +55,12 @@ const Home = () => {
                 data-aos-easing='linear'
                 data-aos-duration='3000'
               ></div>
-              <img
-                src='/chair_image2.png'
-                alt='image of a chair'
-                className='w-full'
-              />
+              <img src={chair1} alt='image of a chair' className='w-full' />
             </div>
+          </div>
+
+          <div>
+            <img src={chair2} alt='chair image' />
           </div>
         </div>
       </div>
