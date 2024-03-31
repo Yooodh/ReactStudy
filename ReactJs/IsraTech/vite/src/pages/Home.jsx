@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import chair1 from '../assets/chair_image1.png';
 import chair2 from '../assets/chair_image2.png';
+import { FiShoppingCart } from 'react-icons/fi';
+import { HiStar } from 'react-icons/hi';
 
 const Home = () => {
   return (
@@ -55,12 +57,54 @@ const Home = () => {
                 data-aos-easing='linear'
                 data-aos-duration='3000'
               ></div>
-              <img src={chair1} alt='image of a chair' className='w-full' />
+              <img src={chair2} alt='image of a chair' className='w-full' />
             </div>
           </div>
-
-          <div>
-            <img src={chair2} alt='chair image' />
+          <div className='lg:flex items-center justify-between my-16'>
+            <div
+              className='lg:w-2/5'
+              data-aos='fade-up-right'
+              data-aos-duration='3000'
+            >
+              <img src={chair1} alt='chair image' className='w-full' />
+            </div>
+            <div className='lg:w-1/2 lg:pt-0 pt-8' data-aos='fade-down'>
+              <div className='flex flex-wrap items-center justify-between'>
+                <span>
+                  <p className='text-gray-sm font-semibold pb-2'>NEW ARRIVAL</p>
+                  <p className='pb-4 flex items-center'>Scott Chair</p>
+                  <div>
+                    {[...Array(5)].map((_, index) => (
+                      <HiStar
+                        key={index}
+                        className='text-[#FFCC02] text-base last:text-gray'
+                      />
+                    ))}
+                    <p className='text-sm text-red-200 font-semibld pl-2'>
+                      35k reviews
+                    </p>
+                  </div>
+                </span>
+                <p className='text-gray xl:text-xl lg:w-1/2 leading-normal'>
+                  Kursi terbang bapak terbuat dari koyu jati Kalimantan dielah
+                  dan dipasang dengan estetika.
+                </p>
+              </div>
+              <p className='text-2xl font-bold'>
+                413.<span className='text-sm'>00</span>
+              </p>
+              <div className='flex justify-between items-center my-8'>
+                <span className='flex gap-x-3 items-center'>
+                  <button className='bg-secondary text-white px-6 py-2 rounded-full border-none hoverBtn'>
+                    Buy
+                  </button>
+                  <FiShoppingCart className='text-secondary text-xl' />
+                </span>
+                <p className='text-secondary xl:text-lg font-semibold text-sm cursor-pointer'>
+                  See more
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
