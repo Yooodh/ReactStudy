@@ -72,8 +72,8 @@ const Home = () => {
               <div className='flex flex-wrap items-center justify-between'>
                 <span>
                   <p className='text-gray-sm font-semibold pb-2'>NEW ARRIVAL</p>
-                  <p className='pb-4 flex items-center'>Scott Chair</p>
-                  <div>
+                  <p className='text-2xl font-semibold'>Scott Chair</p>
+                  <div className='pb-4 flex items-center'>
                     {[...Array(5)].map((_, index) => (
                       <HiStar
                         key={index}
@@ -105,6 +105,62 @@ const Home = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className='lg:flex items-center justify-between relative'>
+            <div className='flex lg:flex-col flex-wrap justify-between'>
+              <div>
+                <p className='text-gray font-semibold pb-2'>THIS WEEK</p>
+                <p className='text-4xl font-bold leading-normal'>
+                  Complete <br /> Furniture set
+                </p>
+                <p className='text-sm pt-8 pb-4'>Crafted by:</p>
+                <span className='flex items-center gap-x-4'>
+                  <img src='' alt='' className='w-10 h-10 rounded-full' />
+                  <img src='' alt='' className='w-10 h-10 rounded-full' />
+                  <img src='' alt='' className='w-10 h-10 rounded-full' />
+                </span>
+              </div>
+              <div className='mt-16'>
+                <p className='text-2xl font-semibold'>Lowie Chair</p>
+                <div className='pb-4 flex items-center'>
+                  {[...Array(5)].map((_, index) => (
+                    <HiStar
+                      key={index}
+                      className='text-[#FFCC02] text-base last:text-gray'
+                    />
+                  ))}
+                  <p className='text-sm text-red-200 font-semibold pl-2'>
+                    8.9k reviews
+                  </p>
+                </div>
+                <p className='text-[#a8a8b9] xl:text-xl leading-normal'>
+                  Dimension:60cm x 50cm x 30cm <br /> Comly stainless-steel
+                  product
+                </p>
+                <p className='text-2xl font-bold py-4'>
+                  $90. <span className='text-sm'>00</span>
+                </p>
+                <span className='flex gap-x-3 items-center'>
+                  <button className='bg-secondary text-white px-6 py-2 rounded-full border-none hoverBtn'>
+                    Buy
+                  </button>
+                  <FiShoppingCart className='text-secondary text-xl' />
+                </span>
+                <p className='text-secondary xl:text-lg font-semibold text-sm pt-6 cursor-pointer'>
+                  See collections
+                </p>
+              </div>
+            </div>
+            <div className='lg:w-1/2 lg:py-0 py-10'>
+              <img
+                src=''
+                alt=''
+                data-aos='zoom-in'
+                className='w-full relative z-10 lg:-ml-20'
+              />
+            </div>
+            <div className='hidden lg:block bg-[#e4d7d1] h-full w-1/2 absolute right-0 rounded-1-[100px]'></div>
           </div>
         </div>
       </div>
