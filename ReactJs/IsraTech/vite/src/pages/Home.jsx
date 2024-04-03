@@ -164,23 +164,23 @@ const Home = () => {
             <div className='hidden lg:block bg-[#e4d7d1] h-full w-1/2 absolute right-0 rounded-1-[100px]'></div>
           </div>
 
-          <section>
-            <div>
-              <p>
+          <section className='hidden lg:block bg-[#e4d7d1] h-full w-1/2 absolute right-0 rounded-1-[100px]'>
+            <div className='lg:w-3/5'>
+              <p className='text-4xl font-bold leading-normal'>
                 Feature <br /> for you
               </p>
-              <div>
-                <span>
+              <div className='flex flex-wrap justify-between mt-16 gap-x-16'>
+                <span className='text-gray text-xl flex flex-col gap-y-4 font-medium'>
                   <p>Modern Chair</p>
-                  <p>
-                    Lamp <FaArrowRight />
+                  <p className='flex items-center justify-between text-secondary opacity-70'>
+                    Lamp <FaArrowRight className='text-base' />
                   </p>
                   <p>Wardrobe</p>
                   <p>Bed</p>
                   <p>Table</p>
                 </span>
-                <span>
-                  <p>Fig Lamp</p>
+                <span className='lg:w-1/2 lg:pt-0 pt-8'>
+                  <p className='text-2xl font-semibold'>Fig Lamp</p>
                   <div className='pb-4 flex items-center'>
                     {[...Array(5)].map((_, index) => (
                       <HiStar
@@ -192,16 +192,30 @@ const Home = () => {
                       4.2k reviews
                     </p>
                   </div>
-                  <p>
+                  <p className='text-gray leading-10 text-xl pt-4'>
                     Wooden based lamp, 5V <br />
                     outputed and have arounded texture in the neck.
                   </p>
-                  <span>
-                    <img src='' alt='' />
-                    <img src='' alt='' />
+                  <span className='flex justify-between'>
+                    <img
+                      src=''
+                      alt='lamp'
+                      data-aos='fade-up'
+                      data-aos-easing='linear'
+                      data-aos-duration='3000'
+                      className='w-1/3 rotate'
+                    />
+                    <img
+                      src=''
+                      alt='lamp'
+                      data-aos='fade-up'
+                      data-aos-easing='linear'
+                      data-aos-duration='3000'
+                      className='w-1/3 rotate'
+                    />
                   </span>
-                  <p>
-                    $413.<span>00</span>
+                  <p className='text-2xl font-bold py-4'>
+                    $413.<span className='text-sm'>00</span>
                   </p>
                   <div>
                     <span className='flex gap-x-3 items-center'>
@@ -217,7 +231,10 @@ const Home = () => {
                 </span>
               </div>
             </div>
-            <span></span>
+            <span className='lg:w-2/5 relative'>
+              <img src='' alt='lamp' className='w-full' />
+              <div className='bg-gray rounded-2xl'></div>
+            </span>
           </section>
         </div>
       </div>
