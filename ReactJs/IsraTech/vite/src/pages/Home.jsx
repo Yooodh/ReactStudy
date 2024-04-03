@@ -4,6 +4,7 @@ import chair1 from '../assets/chair_image1.png';
 import chair2 from '../assets/chair_image2.png';
 import { FiShoppingCart } from 'react-icons/fi';
 import { HiStar } from 'react-icons/hi';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Home = () => {
   return (
@@ -162,6 +163,62 @@ const Home = () => {
             </div>
             <div className='hidden lg:block bg-[#e4d7d1] h-full w-1/2 absolute right-0 rounded-1-[100px]'></div>
           </div>
+
+          <section>
+            <div>
+              <p>
+                Feature <br /> for you
+              </p>
+              <div>
+                <span>
+                  <p>Modern Chair</p>
+                  <p>
+                    Lamp <FaArrowRight />
+                  </p>
+                  <p>Wardrobe</p>
+                  <p>Bed</p>
+                  <p>Table</p>
+                </span>
+                <span>
+                  <p>Fig Lamp</p>
+                  <div className='pb-4 flex items-center'>
+                    {[...Array(5)].map((_, index) => (
+                      <HiStar
+                        key={index}
+                        className='text-[#FFCC02] text-base last:text-gray'
+                      />
+                    ))}
+                    <p className='text-sm text-red-200 font-semibold pl-2'>
+                      4.2k reviews
+                    </p>
+                  </div>
+                  <p>
+                    Wooden based lamp, 5V <br />
+                    outputed and have arounded texture in the neck.
+                  </p>
+                  <span>
+                    <img src='' alt='' />
+                    <img src='' alt='' />
+                  </span>
+                  <p>
+                    $413.<span>00</span>
+                  </p>
+                  <div>
+                    <span className='flex gap-x-3 items-center'>
+                      <button className='bg-secondary text-white px-6 py-2 rounded-full border-none hoverBtn'>
+                        Buy
+                      </button>
+                      <FiShoppingCart className='text-secondary text-xl' />
+                    </span>
+                    <p className='text-secondary xl:text-lg font-semibold text-sm pt-6 cursor-pointer'>
+                      See more
+                    </p>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <span></span>
+          </section>
         </div>
       </div>
     </div>
