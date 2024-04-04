@@ -236,6 +236,42 @@ const Home = () => {
               <div className='bg-gray rounded-2xl'></div>
             </span>
           </section>
+          <section
+            className='rounded-[50px] w-full my-16 lg:h-[50rem] bg-[url("bg_image.png")] bg-no-repeat bg-cover bg-bottom flex flex-col justify-center sm:p-16 p-8'
+            data-aos='zoom-in'
+          >
+            <h2
+              className='text-[#464969] md:text-5xl text-3xl leading-sung flex flex-col font-semibold'
+              data-aos='fade-right'
+              data-aos-duration='2000'
+              data-aos-easing='ease-in-sine'
+            >
+              Subscribe and get <span className='text-secondary'>10% OFF</span>
+            </h2>
+            <p
+              className='text-[#464969] text-sm leading-10'
+              data-aos='fade-right'
+              data-aos-duration='2000'
+              data-aos-easing='ease-in-sine'
+            >
+              Get 10% discount for all products
+            </p>
+            <div
+              className='relative h-14 flex flex-col justify-center my-6 lg:w-1/3'
+              data-aos='fade-right'
+              data-aos-duration='2000'
+              data-aos-easing='ease-in-sine'
+            >
+              <input
+                type='email'
+                placeholder='Your email'
+                className='bg-white rounded-full pl-6 h-full w-full absolute border-none outline-none text-base'
+              />
+              <button className='bg-secondary text-white rounded-full sm:px-8 px-4 text-sm absolute border-none right-2 h-[80%] hoverBtn'>
+                Subscribe
+              </button>
+            </div>
+          </section>
         </div>
       </div>
     </div>
