@@ -1,17 +1,21 @@
 import React from 'react';
 import data from './components/back/Data/Data';
 import Header from './components/front/Header/Header';
-import { BrowserRouter as Router } from 'react-router-dom';
+import Rout from './components/front/Rout/Rout';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   const { productItems } = data;
 
   return (
-    <div>
-      <Router>
-        <Header />
-      </Router>
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Header />} />
+        </Routes>
+        <Rout productItems={productItems} />
+      </BrowserRouter>
+    </>
   );
 };
 
