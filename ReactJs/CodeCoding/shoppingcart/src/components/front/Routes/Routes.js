@@ -4,13 +4,35 @@ import Products from '../Products/Products';
 import Signup from '../Signup/Signup';
 import Cart from '../Cart/Cart';
 
-const Rout = ({ productItems }) => {
+const Rout = ({
+  productItems,
+  cartItems,
+  handleAddProduct,
+  handleRemoveProduct,
+}) => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Products productItems={productItems} />} />
+        <Route
+          path='/'
+          element={
+            <Products
+              productItems={productItems}
+              handleAddProduct={handleAddProduct}
+            />
+          }
+        />
         <Route path='/signup' element={<Signup />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route
+          path='/cart'
+          element={
+            <Cart
+              cartItems={cartItems}
+              handleAddProduct={handleAddProduct}
+              handleRemoveProduct={handleRemoveProduct}
+            />
+          }
+        />
       </Routes>
     </div>
   );
