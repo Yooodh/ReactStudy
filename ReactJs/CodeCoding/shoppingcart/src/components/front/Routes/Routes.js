@@ -9,6 +9,7 @@ const Rout = ({
   cartItems,
   handleAddProduct,
   handleRemoveProduct,
+  handleCartClearance,
 }) => {
   return (
     <div>
@@ -30,6 +31,7 @@ const Rout = ({
               cartItems={cartItems}
               handleAddProduct={handleAddProduct}
               handleRemoveProduct={handleRemoveProduct}
+              handleCartClearanct={handleCartClearance}
             />
           }
         />

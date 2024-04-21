@@ -37,14 +37,19 @@ const App = () => {
     }
   };
 
+  const handleCartClearance = () => {
+    setCartItems([]);
+  };
+
   return (
     <>
-      <Header />
+      <Header cartItems={cartItems} />
       <Routes
         productItems={productItems}
         cartItems={cartItems}
         handleAddProduct={handleAddProduct}
         handleRemoveProduct={handleRemoveProduct}
+        handleCartClearance={handleCartClearance}
       />
     </>
   );
