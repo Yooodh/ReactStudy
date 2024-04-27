@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { FaCar, FaHotel, FaPlaneDeparture, FaShip } from 'react-icons/fa';
 
+import Paris from '../assets/img1.jpg';
+import Brazil from '../assets/img2.jpg';
+import Japan from '../assets/img3.jpg';
+import London from '../assets/img4.jpg';
+
 function Featured() {
   const [active, setActive] = useState('Hotel');
 
@@ -132,6 +137,49 @@ function Featured() {
                 Book Now
               </button>
             </span>
+          </div>
+        </div>
+
+        <div>
+          <span className='flex flex-col items-center'>
+            <p className='text-primary font-bold capitalize tracking-[0.15em]'>
+              Festure Tours
+            </p>
+            <h2 className='text-4xl text-center font-bold capitalize my-4'>
+              Beautiful Places Around The World
+            </h2>
+          </span>
+          <div className='flex lg:flex-1 lg:flex-row flex-col gap-8 my-12 h-full'>
+            <Card
+              amound='1200'
+              contury='Paris'
+              image={Paris}
+              packages='3'
+              rows='2'
+            />
+            <div className='flex flex-col gap-8'>
+              <Card
+                amound='1900'
+                contury='Brazil'
+                image={Brazil}
+                packages='8'
+                rows='1'
+              />
+              <Card
+                amound='1500'
+                contury='Japan'
+                image={Japan}
+                packages='3'
+                rows='1'
+              />
+            </div>
+            <Card
+              amound='1600'
+              contury='London'
+              image={London}
+              packages='3'
+              rows='2'
+            />
           </div>
         </div>
       </div>

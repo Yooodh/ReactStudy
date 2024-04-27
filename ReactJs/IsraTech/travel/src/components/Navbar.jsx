@@ -21,37 +21,37 @@ const Navbar = () => {
           </div>
           <ul className='flex items-center xl:gap-12 gap-x-4 max-lg:hidden'>
             <a
-              href='#'
+              href='/'
               className='leading-normal no-underline text-black font-bold text-lg hover:text-primary'
             >
               Home
             </a>
             <a
-              href='#'
+              href='/'
               className='leading-normal no-underline text-black font-bold text-lg hover:text-primary'
             >
               Tours
             </a>
             <a
-              href='#'
+              href='/'
               className='leading-normal no-underline text-black font-bold text-lg hover:text-primary'
             >
               Hotel
             </a>
             <a
-              href='#'
+              href='/'
               className='leading-normal no-underline text-black font-bold text-lg hover:text-primary'
             >
               Pages
             </a>
             <a
-              href='#'
+              href='/'
               className='leading-normal no-underline text-black font-bold text-lg hover:text-primary'
             >
               Blog
             </a>
             <a
-              href='#'
+              href='/'
               className='leading-normal no-underline text-black font-bold text-lg hover:text-primary'
             >
               Contact
@@ -81,37 +81,37 @@ const Navbar = () => {
             <div className='w-full flex flex-col items-baseline gap-4'>
               <ul className='flex flex-col justify-center w-full'>
                 <a
-                  href='#'
+                  href='/'
                   className='px-6 h-10 flex items-center leading-normal no-underline text-white font-bold text-lg hover:text-primary text-[15px] border-0 border-b border-[#ffffff1a] border-solid'
                 >
                   Home
                 </a>
                 <a
-                  href='#'
+                  href='/'
                   className='px-6 h-10 flex items-center leading-normal no-underline text-white font-bold text-lg hover:text-primary text-[15px] border-0 border-b border-[#ffffff1a] border-solid'
                 >
                   Tours
                 </a>
                 <a
-                  href='#'
+                  href='/'
                   className='px-6 h-10 flex items-center leading-normal no-underline text-white font-bold text-lg hover:text-primary text-[15px] border-0 border-b border-[#ffffff1a] border-solid'
                 >
                   Hotel
                 </a>
                 <a
-                  href='#'
+                  href='/'
                   className='px-6 h-10 flex items-center leading-normal no-underline text-white font-bold text-lg hover:text-primary text-[15px] border-0 border-b border-[#ffffff1a] border-solid'
                 >
                   Pages
                 </a>
                 <a
-                  href='#'
+                  href='/'
                   className='px-6 h-10 flex items-center leading-normal no-underline text-white font-bold text-lg hover:text-primary text-[15px] border-0 border-b border-[#ffffff1a] border-solid'
                 >
                   Blog
                 </a>
                 <a
-                  href='#'
+                  href='/'
                   className='px-6 h-10 flex items-center leading-normal no-underline text-white font-bold text-lg hover:text-primary text-[15px] border-0 border-b border-[#ffffff1a] border-solid'
                 >
                   Contact
