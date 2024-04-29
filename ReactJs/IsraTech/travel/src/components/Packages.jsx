@@ -68,6 +68,47 @@ function Packages() {
           className='lg:block hidden absolute -bottom-0 right-0'
         />
       </div>
+      <section className='max-w-[1400px] mx-auto relative px-3 py-12'>
+        <div className='xl:text-[25rem] lg:text-[20rem] leading-[.5] absolute left-0 w-full h-full text-center z-[-1] text-gray font-semibold opacity-10'>
+          Travel
+        </div>
+        <div>
+          <span className='flex flex-col items-center'>
+            <p className='text-primary font-bold capitalize tracking-[0.15em]'>
+              Inventore Veritatis
+            </p>
+            <h2 className='text-4xl text-center font-bold capitalize my-4'>
+              Select Offers For Traveling
+            </h2>
+          </span>
+        </div>
+        <div className='flex lg:flex-row flex-col gap-y-8 items-center justify-between my-12'>
+          <span className='flex flex-col items-center'>
+            <img src='' alt='' />
+            <p>Different Countries</p>
+          </span>
+          <span className='flex flex-col items-center'>
+            <img src='' alt='' />
+            <p>Bus Tours</p>
+          </span>
+          <span className='flex flex-col items-center'>
+            <img src='' alt='' />
+            <p>Food Tours</p>
+          </span>
+          <span className='flex flex-col items-center'>
+            <img src='' alt='' />
+            <p>Summer Rest</p>
+          </span>
+          <span className='flex flex-col items-center'>
+            <img src='' alt='' />
+            <p>Ship Cruises</p>
+          </span>
+          <span className='flex flex-col items-center'>
+            <img src='' alt='' />
+            <p>Mountain Tours</p>
+          </span>
+        </div>
+      </section>
     </div>
   );
 }
