@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { HiLocationMarker, HiStar } from 'react-icons/hi';
+
+const images = [
+  './assets/img1.jpg',
+  './assets/img2.jpg',
+  './assets/img3.jpg',
+  './assets/img4.jpg',
+];
 
 function Popular() {
   const Card = ({ image, text }) => {
@@ -31,6 +38,24 @@ function Popular() {
       </div>
     );
   };
+
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    const scrollInterval = setInterval(() => {
+      if (
+        container.scrollLeft + container.offsetWidth <
+        container.scrollWidth
+      ) {
+        container.scrollLeft += container.offsetWidth;
+      } else {
+        container.scrollLeft = 0;
+      }
+    }, 3000);
+    return () => clearInterval(scrollInterval);
+  }, []);
 
   return (
     <div>
@@ -64,14 +89,30 @@ function Popular() {
           </div>
         </div>
       </section>
-      <section>
-        <div>
-          <span>
-            <p>Our Gallery</p>
-            <h2>Best Traveler Share A Photo</h2>
+      <section className='bg-white py-16'>
+        <div className='max-w-[1400px] mx-auto'>
+          <span className='flex flex-col items-center'>
+            <p className='text-primary font-bold capitalize tracking-[0.15em]'>
+              Our Gallery
+            </p>
+            <h2 className='text-4xl text-center font-bold capitalize my-4'>
+              Best Traveler Share A Photo
+            </h2>
           </span>
         </div>
-        <div></div>
+        <div
+          className='overflow-auto my-0 mx-auto flex rounded-2xl py-12 images'
+          ref={containerRef}
+        >
+          {images.map((image, id) => (
+            <img
+              key={id}
+              src={image}
+              alt=''
+              className='flex-none w-[270px] rounded-2xl mr-8'
+            />
+          ))}
+        </div>
       </section>
     </div>
   );
