@@ -34,14 +34,44 @@ function Popular() {
 
   return (
     <div>
+      <section className='bg-lightGray py-16'>
+        <div className='max-w-[1400px] mx-auto px-3'>
+          <span className='flex flex-col items-center'>
+            <p className='text-primary font-bold capitalize tracking-[0.15em]'>
+              Popular Hotel
+            </p>
+            <h2 className='text-4xl text-center font-bold capitalize my-4'>
+              Most Popular Hotel
+            </h2>
+          </span>
+          <div className='gird xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 my-12 relative z-10'>
+            <Card
+              image='/img9.jpg'
+              text='Enjoy The Beauty Place In Greece City'
+            />
+            <Card
+              image='/img10.jpg'
+              text='Enjoy The Beauty Place In Maldives Beach'
+            />
+            <Card
+              image='/img11.jpg'
+              text='Enjoy The Beauty Place In Bhutan City'
+            />
+            <Card
+              image='/img12.jpg'
+              text='Enjoy The Beauty Place In Paris City'
+            />
+          </div>
+        </div>
+      </section>
       <section>
         <div>
           <span>
-            <p>Popular Hotel</p>
-            <h2>Most Popular Hotel</h2>
+            <p>Our Gallery</p>
+            <h2>Best Traveler Share A Photo</h2>
           </span>
-          <div></div>
         </div>
+        <div></div>
       </section>
     </div>
   );
