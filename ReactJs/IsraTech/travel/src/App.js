@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Packages from './components/Packages';
 import Popular from './components/Popular';
+import Discover from './components/Discover';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Featured />
       <Packages />
       <Popular />
+      <Discover />
     </>
   );
 }
