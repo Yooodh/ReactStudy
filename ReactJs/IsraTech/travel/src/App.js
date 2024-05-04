@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Packages from './components/Packages';
 import Popular from './components/Popular';
 import Discover from './components/Discover';
+import Blog from './components/Blog';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Packages />
       <Popular />
       <Discover />
+      <Blog />
     </>
   );
 }
