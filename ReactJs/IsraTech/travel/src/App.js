@@ -6,6 +6,7 @@ import Packages from './components/Packages';
 import Popular from './components/Popular';
 import Discover from './components/Discover';
 import Blog from './components/Blog';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Popular />
       <Discover />
       <Blog />
+      <Footer />
     </>
   );
 }
