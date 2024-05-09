@@ -71,7 +71,7 @@ function NavBar() {
           <span className='navbar-text'>
             <div className='social-icon'>
               <a href='#'>
-                <img src={navIcon1} alt='' />
+                `<img src={navIcon1} alt='' />
               </a>
               <a href='#'>
                 <img src={navIcon2} alt='' />
