@@ -1,5 +1,6 @@
 import './App.css';
 import Banner from './components/Banner';
+import Contact from './components/Contact';
 import NavBar from './components/NavBar';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
@@ -12,6 +13,7 @@ function App() {
       <Banner />
       <Skills />
       <Projects />
+      <Contact />
     </div>
   );
 }
