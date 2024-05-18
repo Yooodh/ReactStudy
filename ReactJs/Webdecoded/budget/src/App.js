@@ -1,10 +1,11 @@
 import './App.css';
 import BalanceReview from './BalanceReview';
+import './styles.css';
 
 function App() {
   return (
     <div className='App'>
-      <BalanceReview />
+      <BalanceReview amount={500} currency='$' />
     </div>
   );
 }

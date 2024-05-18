@@ -8,6 +8,18 @@ const BalanceReview = ({ amount, currency }) => {
 
   const onTransactionSubmit = (transactionAmount) => {
     let updateBalance;
+    switch (modalOpen) {
+      case 'Deposit':
+        updateBalance = balance + parseInt(transactionAmount);
+        break;
+      case 'Withdraw':
+        updateBalance = balance - parseInt(transactionAmount);
+        break;
+      default:
+        break;
+    }
+    setBalance(updateBalance);
+    setModalOpen('');
   };
 
   return (
@@ -15,7 +27,7 @@ const BalanceReview = ({ amount, currency }) => {
       <div className='balance-info'>
         <h1>Balance</h1>
         <p>
-          {amount} {currency}
+          {balance} {currency}
         </p>
       </div>
       <div className='buttons-wrapper'>
@@ -24,17 +36,14 @@ const BalanceReview = ({ amount, currency }) => {
             Deposit
           </button>
         )}
-        {modalOpen !== 'Widthdraw' && (
-          <button className='red' onClick={() => setModalOpen('Widthdraw')}>
-            Widthdraw
+        {modalOpen !== 'Withdraw' && (
+          <button className='red' onClick={() => setModalOpen('Withdraw')}>
+            Withdraw
           </button>
         )}
       </div>
       {modalOpen !== '' && (
-        <TransactionForm
-          title={modalOpen}
-          onSubmit={() => console.log('submitted')}
-        />
+        <TransactionForm title={modalOpen} onSubmit={onTransactionSubmit} />
       )}
     </div>
   );

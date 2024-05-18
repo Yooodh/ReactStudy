@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
-const TransactionForm = ({ title, onsubmit }) => {
+const TransactionForm = ({ title, onSubmit }) => {
   const [amount, setAmount] = useState('');
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    onsubmit(amount);
+    onSubmit(amount);
+    setAmount('');
   };
 
   return (
-    <form>
+    <form onSubmit={onFormSubmit} className='transaction-form lighter-grey'>
       <label>
         {`Amount to ${title}`}
         <input
