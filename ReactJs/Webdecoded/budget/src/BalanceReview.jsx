@@ -1,24 +1,28 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import TransactionForm from './TransactionForm';
+import { BalanceContext } from './BalanceContext';
 
-const BalanceReview = ({ amount, currency }) => {
-  const [balance, setBalance] = useState(amount);
+const BalanceReview = ({ currency }) => {
   const [modalOpen, setModalOpen] = useState('');
+  const balancefromContext = useContext(BalanceContext);
 
   const onTransactionSubmit = (transactionAmount) => {
-    let updateBalance;
+    let updatedBalance;
     switch (modalOpen) {
       case 'Deposit':
-        updateBalance = balance + parseInt(transactionAmount);
+        updatedBalance =
+          balancefromContext.balance + parseInt(transactionAmount);
         break;
       case 'Withdraw':
-        updateBalance = balance - parseInt(transactionAmount);
+        updatedBalance =
+          balancefromContext.balance - parseInt(transactionAmount);
         break;
       default:
         break;
     }
-    setBalance(updateBalance);
+
+    balancefromContext.updateBalance(updatedBalance);
     setModalOpen('');
   };
 
@@ -27,7 +31,7 @@ const BalanceReview = ({ amount, currency }) => {
       <div className='balance-info'>
         <h1>Balance</h1>
         <p>
-          {balance} {currency}
+          {balancefromContext.balance} {currency}
         </p>
       </div>
       <div className='buttons-wrapper'>

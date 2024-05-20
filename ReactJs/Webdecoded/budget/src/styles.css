@@ -59,3 +59,26 @@ body {
   border-radius: 10px;
   font-size: 10px;
 }
+
+.transaction-form {
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.transaction-form button {
+  background-color: rgba(98, 0, 255, 0.788);
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.transaction-form input {
+  border-radius: 10px;
+  border: none;
+  padding: 20px 10px 20px 10px;
+  width: 100%;
+  margin-top: 10px;
+}
