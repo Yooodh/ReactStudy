@@ -20,6 +20,29 @@ const ContactForm = () => {
     });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setButtonText('Sending...');
+    let response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'applications/json;charset=utf-8',
+      },
+      body: JSON.stringify(formDetails),
+    });
+    let result = await response.json();
+    setButtonText('Send');
+    setFormDetails(formInitialDetails);
+    if (result.code == 200) {
+      setStatus({ success: true, message: 'Message sent succesfully' });
+    } else {
+      setStatus({
+        success: false,
+        message: 'Something went wrong, please try again later',
+      });
+    }
+  };
+
   return (
     <div className='form-container'>
       <h1>Contact Us</h1>
