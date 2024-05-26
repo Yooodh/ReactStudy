@@ -21,12 +21,13 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    console.log(formDetails);
     e.preventDefault();
     setButtonText('Sending...');
     let response = await fetch('/api/contact', {
       method: 'POST',
       headers: {
-        'Content-Type': 'applications/json;charset=utf-8',
+        'Content-Type': 'application/json;charset=utf-8',
       },
       body: JSON.stringify(formDetails),
     });
@@ -47,7 +48,7 @@ const ContactForm = () => {
     <div className='form-container'>
       <h1>Contact Us</h1>
       <p>We're here to help if you have any questions</p>
-      <form className='form-inner'>
+      <form className='form-inner' onSubmit={handleSubmit}>
         <div className='row'>
           <input
             type='text'

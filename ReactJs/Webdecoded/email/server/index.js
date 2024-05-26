@@ -8,6 +8,7 @@ require('dotenv').config();
 const PORT = process.env.PORT || 3001;
 
 const app = express();
+app.use(express.static(path.resolve(__dirname, '../build')));
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -35,8 +36,8 @@ app.post(
   '/api/contact',
   bodyParser.urlencoded({ extended: false }),
   (req, res) => {
-    const name = (req.body.firstName = req.body.lastName);
-    const email = re.body.email;
+    const name = req.body.firstName + req.body.lastName;
+    const email = req.body.email;
     const phone = req.body.phone;
     const mail = {
       from: name,
@@ -56,6 +57,10 @@ app.post(
     });
   }
 );
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../build', index.html));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is online on port:${PORT}`);
