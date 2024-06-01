@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { profile1 } from '../..//images';
+import Facts from './Facts';
 
 const Header = () => {
   return (
@@ -22,6 +23,7 @@ const Header = () => {
                 users.
               </p>
             </div>
+            <Facts />
             <div className='header__info__bottom'>
               <button className='btn'>Download CV</button>
               <a href='mailto:eogus2604@gamil.com' className='btn'>
