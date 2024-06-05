@@ -30,7 +30,7 @@
     var(--color-primary),
     transparent 240deg
   );
-  inset: -5%;
+  inset: -50%;
   z-index: -2;
   animation: spin 9s linear infinite;
   animation-play-state: paused;
