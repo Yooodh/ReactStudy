@@ -29,7 +29,7 @@
   gap: 1rem;
 }
 
-.skill__card .skil__icon {
+.skill__card .skill__icon {
   margin-top: 6px;
   color: var(--color-primary);
 }

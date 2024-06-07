@@ -1,0 +1,22 @@
+.card {
+  padding: 0;
+  border-radius: var(--border-radius-3);
+  background: rgba(var(--card-rgb), 0, 1);
+  border: 1px solid rgba(var(--card-border-rgb), 0.15);
+  transition: background 200ms, border 200ms;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: zoomIn 400ms;
+}
+
+@keyframes zoomIn {
+  0% {
+    scale: 0.7;
+  }
+  100% {
+    scale: 1;
+  }
+}
