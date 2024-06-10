@@ -6,7 +6,7 @@
 
 #testimonial .testimonial__container {
   width: 100%;
-  page-break-inside: 4rem !important;
+  padding-bottom: 4rem !important;
 }
 
 #testimonial .client__avatar {
@@ -19,7 +19,7 @@
 }
 
 #testimonial .testimonial {
-  background-color: var(--color_ui-2);
+  background-color: var(--color-ui-2);
   text-align: center;
   padding: 20px;
   border-radius: var(--border-radius-4);

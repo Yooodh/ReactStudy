@@ -48,7 +48,7 @@ const Testimonial = () => {
           spaceBetween={40}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          backpoints={{
+          breakpoints={{
             700: {
               slidesPerView: 2,
             },
@@ -57,7 +57,7 @@ const Testimonial = () => {
           {data.map(({ avatar, name, review }, index) => (
             <SwiperSlide className='testimonial' key={index}>
               <div className='client__avatar'>
-                <img src={{ avatar }} alt={review} />
+                <img src={avatar} alt={review} />
               </div>
               <h3 className='client__name'>{name}</h3>
               <small className='client__review'>{review}</small>
