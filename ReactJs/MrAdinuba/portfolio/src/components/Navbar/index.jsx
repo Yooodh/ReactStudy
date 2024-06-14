@@ -25,6 +25,7 @@ const Navbar = () => {
   }, []);
 
   const container = useRef(null);
+  gsap.registerPlugin(useGSAP);
   useEffect(() => {
     if (visible) {
       gsap.fromTo(
@@ -41,6 +42,14 @@ const Navbar = () => {
       );
     }
   }, [visible]);
+
+  useGSAP(
+    () => {
+      const timeline = gsap.timeline();
+      timeline.from('.tab__item', { opacity: 0, stagger: 0.5 });
+    },
+    { scope: container }
+  );
 
   return (
     <nav
