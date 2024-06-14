@@ -1,16 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
 import { SiWebmoney } from 'react-icons/si';
 import { menu } from '../../data';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { FaArrowUpRightFromSquare, FaBarsStaggered } from 'react-icons/fa6';
 import { FaTimes } from 'react-icons/fa';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos > 145) {
+      return setVisible(true);
+    }
+    return setVisible(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const container = useRef(null);
+  useEffect(() => {
+    if (visible) {
+      gsap.fromTo(
+        '.navbar__container',
+        {
+          y: -250,
+          width: '100%',
+        },
+        {
+          y: 0,
+          top: 0,
+          zIndex: 100,
+        }
+      );
+    }
+  }, [visible]);
 
   return (
-    <nav className='navbar__container'>
+    <nav
+      className={`navbar__container ${visible ? 'visible' : ''}`}
+      ref={container}
+    >
       {showSidebar ? (
         <div
           className='overlay'
@@ -19,7 +55,10 @@ const Navbar = () => {
       ) : (
         ''
       )}
-      <div className='logo__container'>
+      <div
+        className='logo__container'
+        onClick={() => scroll.scrollToTop({ duration: 500 })}
+      >
         <SiWebmoney />
       </div>
       <div className={`tab__group ${showSidebar ? 'show' : ''}`}>
