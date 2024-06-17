@@ -1,0 +1,31 @@
+nav {
+  align-items: stretch;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--bg-secondary);
+  border-bottom: solid 0.5px var(--border-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+nav .column {
+  justify-content: flex-start;
+}
+
+nav .tab {
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: var(--muted-foreground);
+  transition: var(--transition);
+  cursor: pointer;
+  border: solid 0.5px transparent;
+}
+
+nav .tab.active {
+  border-color: var(--primary);
+  background: var(--bg-accent);
+  color: var(--foreground);
+}
