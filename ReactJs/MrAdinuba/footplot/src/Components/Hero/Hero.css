@@ -116,3 +116,23 @@
     justify-content: center;
   }
 }
+
+#hero .handles-container {
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--glow);
+  padding: 20px 10px;
+  -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
+  border-radius: 10px;
+  z-index: 90;
+}
+
+@media (max-width: 1250px) {
+  #hero .handles-container {
+    display: none;
+  }
+}

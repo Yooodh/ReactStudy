@@ -2,6 +2,7 @@ import React from 'react';
 import './Hero.css';
 import heroImage from '../../assets/hero-shoe.png';
 import { FaStar } from 'react-icons/fa6';
+import SocialHandles from '../../Commons/SocialHandles';
 
 const Hero = () => {
   const textPath = `    <textPath
@@ -14,6 +15,7 @@ const Hero = () => {
   `;
   return (
     <section id='hero'>
+      <SocialHandles />
       <div className='container'>
         <div className='column'>
           <h1 className='heading-1'>
