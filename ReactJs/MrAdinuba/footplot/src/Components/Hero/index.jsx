@@ -18,17 +18,21 @@ const Hero = () => {
       <SocialHandles />
       <div className='container'>
         <div className='column'>
-          <h1 className='heading-1'>
+          <h1 className='heading-1' data-aos='fade-right'>
             Perfect <span className='stroke-text'>Shoes</span>
             <span className='gradient-text'>for Every Journey</span>
           </h1>
-          <p className='muted'>
+          <p className='muted' data-aos='fade-right' data-aos-delay='200'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
             perferendis suscipit quam quae quos delectus voluptates, ab
             asperiores blanditiis. Nisi voluptates aspernatur impedit odit
             voluptas ratione maiores aliquam est dolor?
           </p>
-          <div className='discount-wrapper'>
+          <div
+            className='discount-wrapper'
+            data-aos='fade-up'
+            data-aos-delay='300'
+          >
             <svg
               xmlns='http://www.w3.org/2000/svg'
               xml:lang='en'
@@ -54,17 +58,37 @@ const Hero = () => {
             <h1 className='discount'>40% Off</h1>
           </div>
           <div className='flex-center buttons-wrapper'>
-            <a href='#' className='btn'>
+            <a
+              href='#'
+              className='btn'
+              data-aos='fade-left'
+              data-aos-delay='400'
+              data-aos-offset='70'
+            >
               Show Now
             </a>
-            <a href='#' className='btn primary'>
+            <a
+              href='#'
+              className='btn primary'
+              data-aos='fade-left'
+              data-aos-delay='500'
+              data-aos-offset='70'
+            >
               More
             </a>
           </div>
         </div>
-        <div className='column hero-image'>
+        <div
+          className='column hero-image'
+          data-aos='fade-left'
+          data-aos-delay='800'
+        >
           <img src={heroImage} alt='' />
-          <div className='rating-group'>
+          <div
+            className='rating-group'
+            data-aos='fade-up'
+            data-aos-delay='1000'
+          >
             <div className='flex row'>
               <h1>4.5</h1>
               <div className='flex-center stars-container'>
