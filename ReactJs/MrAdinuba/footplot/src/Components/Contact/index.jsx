@@ -3,7 +3,7 @@ import './Contact.css';
 
 const Contact = () => {
   return (
-    <section id='contact'>
+    <section id='contact' data-aos='slide-right'>
       <div className='container'>
         <div className='contact-form'>
           <div className='top'>

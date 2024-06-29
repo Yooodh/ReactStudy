@@ -6,15 +6,17 @@ const About = () => {
   return (
     <section id='about'>
       <div className='container'>
-        <div className='column about-image'>
+        <div className='column about-image' data-aos='fade-right'>
           <img src={shoe1} alt='' />
         </div>
         <div className='column'>
-          <h2 className='sub-title primary'>About Us</h2>
-          <h1 className='heading-1 gradient-text'>
+          <h2 className='sub-title primary' data-aos='fade-left'>
+            About Us
+          </h2>
+          <h1 className='heading-1 gradient-text' data-aos='fade-left'>
             Discover High-Quality Shoes Here
           </h1>
-          <div className='content'>
+          <div className='content' data-aos='fade-left'>
             <p className='muted'>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
               deserunt. Nulla nam saepe voluptas! Quibusdam soluta nulla
@@ -28,7 +30,7 @@ const About = () => {
               recusandae molestiae, labore excepturi libero ipsa nisi!
             </p>
           </div>
-          <div className='buttons-wrapper'>
+          <div className='buttons-wrapper' data-aos='fade-left'>
             <a href='#products' className='btn primary'>
               Explore more
             </a>

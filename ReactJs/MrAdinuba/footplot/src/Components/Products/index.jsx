@@ -15,12 +15,12 @@ const Products = () => {
   return (
     <section id='products'>
       <div className='container'>
-        <h1 className='heading-1'>
+        <h1 className='heading-1' data-aos='fade-left'>
           Flash <span className='gradient-text'>Deals</span>
         </h1>
         <div className='products-container'>
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe2} alt='' />
               <div className='flex-center btn share-btn'>
@@ -50,7 +50,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe3} alt='' />
               <div className='flex-center btn share-btn'>
@@ -80,7 +80,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe4} alt='' />
               <div className='flex-center btn share-btn'>
@@ -110,7 +110,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe5} alt='' />
               <div className='flex-center btn share-btn'>
@@ -140,7 +140,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe6} alt='' />
               <div className='flex-center btn share-btn'>
@@ -170,7 +170,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe7} alt='' />
               <div className='flex-center btn share-btn'>
@@ -200,7 +200,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe8} alt='' />
               <div className='flex-center btn share-btn'>
@@ -230,7 +230,7 @@ const Products = () => {
           {/* Product end */}
 
           {/* Product start */}
-          <div className='flex product'>
+          <div className='flex product' data-aos='fade-left'>
             <div className='top picture'>
               <img src={shoe9} alt='' />
               <div className='flex-center btn share-btn'>

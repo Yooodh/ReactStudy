@@ -35,12 +35,12 @@ const Feedbacks = () => {
   return (
     <section id='feedbacks'>
       <div className='container'>
-        <h1 className='heading-1'>
+        <h1 className='heading-1' data-aos='fade-left'>
           Customer <span className='gradient-text'>Feedbacks</span>
         </h1>
         <Slider {...settings} className='feedbacks-container'>
           {/* feed block start */}
-          <div className='feed-block'>
+          <div className='feed-block' data-aos='fade-right'>
             <div className='profile'>
               <img src={user1} alt='' />
             </div>
@@ -67,7 +67,7 @@ const Feedbacks = () => {
           {/* feed block end */}
 
           {/* feed block start */}
-          <div className='feed-block'>
+          <div className='feed-block' data-aos='fade-right'>
             <div className='profile'>
               <img src={user2} alt='' />
             </div>
@@ -94,7 +94,7 @@ const Feedbacks = () => {
           {/* feed block end */}
 
           {/* feed block start */}
-          <div className='feed-block'>
+          <div className='feed-block' data-aos='fade-right'>
             <div className='profile'>
               <img src={user3} alt='' />
             </div>
@@ -121,7 +121,7 @@ const Feedbacks = () => {
           {/* feed block end */}
 
           {/* feed block start */}
-          <div className='feed-block'>
+          <div className='feed-block' data-aos='fade-right'>
             <div className='profile'>
               <img src={user4} alt='' />
             </div>
@@ -148,7 +148,7 @@ const Feedbacks = () => {
           {/* feed block end */}
 
           {/* feed block start */}
-          <div className='feed-block'>
+          <div className='feed-block' data-aos='fade-right'>
             <div className='profile'>
               <img src={user5} alt='' />
             </div>

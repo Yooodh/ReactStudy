@@ -28,7 +28,11 @@ const SocialHandles = () => {
   ];
 
   return (
-    <div className='handles-container'>
+    <div
+      className='handles-container'
+      data-aos='fade-right'
+      data-aos-delay='1200'
+    >
       {data.map((handle, index) => (
         <a
           href={handle.link}

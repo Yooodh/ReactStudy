@@ -20,7 +20,7 @@ const Hero = () => {
         <div className='column'>
           <h1 className='heading-1' data-aos='fade-right'>
             Perfect <span className='stroke-text'>Shoes</span>
-            <span className='gradient-text'>for Every Journey</span>
+            <span className='gradient-text'> for Every Journey</span>
           </h1>
           <p className='muted' data-aos='fade-right' data-aos-delay='200'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
