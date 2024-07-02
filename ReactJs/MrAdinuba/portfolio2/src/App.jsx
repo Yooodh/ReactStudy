@@ -12,7 +12,7 @@ import Footer from './Components/Footer';
 
 const App = () => {
   return (
-    <div style={{ color: 'white' }}>
+    <>
       <Navbar />
       <Hero />
       <About />
@@ -23,7 +23,7 @@ const App = () => {
       <Blog />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 };
 
