@@ -3,6 +3,7 @@ import './Navbar.css';
 import Logo from '../Logo';
 import { Link } from 'react-scroll';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import SocialHandles from '../SocialHandles';
 
 const navTabs = [
   {
@@ -60,7 +61,7 @@ const Navbar = () => {
         </div>
         {navTabs.map((tab, index) => (
           <Link
-            classID='flex-center tab'
+            className='flex-center tab'
             activeClass='active'
             to={tab.id}
             spy={true}
@@ -74,6 +75,7 @@ const Navbar = () => {
         ))}
       </div>
       <div className='column flex-center buttons-wrapper'>
+        <SocialHandles />
         <Link to='contact' smooth={true} className='btn primary contact-btn'>
           Hire me
         </Link>
