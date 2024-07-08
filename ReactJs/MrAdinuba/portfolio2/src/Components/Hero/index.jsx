@@ -2,6 +2,7 @@ import React from 'react';
 import './Hero.css';
 import hero_image from '../../assets/hero.png';
 import { Link } from 'react-scroll';
+import Facts from '../Facts';
 
 const Hero = () => {
   return (
@@ -22,6 +23,7 @@ const Hero = () => {
             voluptatem fugiat voluptatum itaque mollitia officiis beatae
             delectus consequuntur provident cum.
           </p>
+          <Facts />
           <div className='flex-center buttons-wrapper'>
             <Link to='projects' smooth={true} className='btn'>
               My Projects
