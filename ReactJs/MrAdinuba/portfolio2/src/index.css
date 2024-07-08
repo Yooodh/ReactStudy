@@ -43,7 +43,7 @@ html,
 body {
   color: var(--foreground);
   min-height: 100vh;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   font-family: 'Poppins', sans-serif;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) transparent;
