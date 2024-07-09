@@ -1,0 +1,73 @@
+#about .buttons-wrapper {
+  margin: 40px 0;
+}
+
+#about .play-btn .play {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 15px 25px var(--primary);
+  cursor: pointer;
+}
+
+#about .play-btn .play::before {
+  content: '';
+  position: absolute;
+  border: 20px solid var(--color-white);
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 0px solid transparent;
+  transform: translateX(5px);
+}
+
+#about .video-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 210;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  background: var(--primary);
+}
+
+#about .video-container.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#about .video-container .video-clip {
+  max-width: 900px;
+  background: var(--primary);
+  padding: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  border-radius: 10px;
+  transform: scale(0.5);
+  transition: 0.5s ease;
+  transition-delay: 0.5s;
+}
+
+#about .video-container.active .video-clip {
+  transform: scale(1);
+}
+
+#about .video-container .video-clip .close-btn {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px 10px 0 0;
+  font-size: 30px;
+}
+
+#about .video-container .video-clip video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}

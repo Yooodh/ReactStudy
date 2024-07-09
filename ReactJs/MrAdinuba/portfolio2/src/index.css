@@ -146,9 +146,10 @@ input {
 
 .clamp-2 {
   display: -webkit-box;
-  -webkit-line-clamp: vertical;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .container {
@@ -156,6 +157,13 @@ input {
   max-width: 1150px;
   margin: auto;
   padding: 70px 20px;
+}
+
+.section-header {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
 }
 
 .flex {
