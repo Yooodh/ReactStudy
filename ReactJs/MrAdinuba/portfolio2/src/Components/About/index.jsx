@@ -2,6 +2,16 @@ import React, { useState } from 'react';
 import './About.css';
 import introVideo from '../../assets/video.mp4';
 import { FaTimes } from 'react-icons/fa';
+import amazonLogo from '../../assets/logos/amazon.png';
+import facebookLogo from '../../assets/logos/facebook.png';
+import goolgeLogo from '../../assets/logos/google.png';
+import linkedinLogo from '../../assets/logos/linkedin.png';
+import microsoftLogo from '../../assets/logos/microsoft.png';
+import netflixLogo from '../../assets/logos/netflix.png';
+import paypalLogo from '../../assets/logos/paypal.png';
+import samsungLogo from '../../assets/logos/samsung.png';
+import skypeLogo from '../../assets/logos/skype.png';
+import whatsappLogo from '../../assets/logos/whatsapp.png';
 
 const About = () => {
   const [openVideo, setOpenVideo] = useState(false);
@@ -49,6 +59,110 @@ const About = () => {
           </div>
         </div>
         {/* end section-header */}
+
+        <div className='brands-container'>
+          <div className='logos-slide gray-scale'>
+            <img src={amazonLogo} alt='' />
+            <img src={facebookLogo} alt='' />
+            <img src={goolgeLogo} alt='' />
+            <img src={linkedinLogo} alt='' />
+            <img src={microsoftLogo} alt='' />
+            <img src={netflixLogo} alt='' />
+            <img src={paypalLogo} alt='' />
+            <img src={samsungLogo} alt='' />
+            <img src={skypeLogo} alt='' />
+            <img src={whatsappLogo} alt='' />
+          </div>
+          <div className='logos-slide gray-scale'>
+            <img src={amazonLogo} alt='' />
+            <img src={facebookLogo} alt='' />
+            <img src={goolgeLogo} alt='' />
+            <img src={linkedinLogo} alt='' />
+            <img src={microsoftLogo} alt='' />
+            <img src={netflixLogo} alt='' />
+            <img src={paypalLogo} alt='' />
+            <img src={samsungLogo} alt='' />
+            <img src={skypeLogo} alt='' />
+            <img src={whatsappLogo} alt='' />
+          </div>
+        </div>
+
+        <div className='education-experience-container'>
+          <div className='column'>
+            <h2 className='gradient-text heading-1'>EDUCATION</h2>
+            <div className='contents'>
+              <div className='box'>
+                <h4>2018 - 2022</h4>
+                <h3>High School Degree</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  fugit dolore itaque ipsam iure est. Possimus, porro ipsum
+                  facere ut explicabo deleniti rerum, omnis magni iure est
+                  suscipit ratione praesentium.
+                </p>
+              </div>
+
+              <div className='box'>
+                <h4>2019 - 2023</h4>
+                <h3>Bachelor's Degree</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  fugit dolore itaque ipsam iure est. Possimus, porro ipsum
+                  facere ut explicabo deleniti rerum, omnis magni iure est
+                  suscipit ratione praesentium.
+                </p>
+              </div>
+
+              <div className='box'>
+                <h4>2019 - 2023</h4>
+                <h3>Master Degree</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  fugit dolore itaque ipsam iure est. Possimus, porro ipsum
+                  facere ut explicabo deleniti rerum, omnis magni iure est
+                  suscipit ratione praesentium.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className='column'>
+            <h2 className='gradient-text heading-1'>EXPERIENCE</h2>
+            <div className='contents'>
+              <div className='box'>
+                <h4>2019 - 2023</h4>
+                <h3>UI/UX Designer</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  fugit dolore itaque ipsam iure est. Possimus, porro ipsum
+                  facere ut explicabo deleniti rerum, omnis magni iure est
+                  suscipit ratione praesentium.
+                </p>
+              </div>
+
+              <div className='box'>
+                <h4>2019 - 2023</h4>
+                <h3>Frontend Developer</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  fugit dolore itaque ipsam iure est. Possimus, porro ipsum
+                  facere ut explicabo deleniti rerum, omnis magni iure est
+                  suscipit ratione praesentium.
+                </p>
+              </div>
+
+              <div className='box'>
+                <h4>2019 - 2023</h4>
+                <h3>Graphics Designer</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab,
+                  fugit dolore itaque ipsam iure est. Possimus, porro ipsum
+                  facere ut explicabo deleniti rerum, omnis magni iure est
+                  suscipit ratione praesentium.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       {/* end container */}
     </section>
