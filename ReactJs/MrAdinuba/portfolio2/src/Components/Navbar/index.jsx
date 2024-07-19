@@ -4,6 +4,8 @@ import Logo from '../Logo';
 import { Link } from 'react-scroll';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import SocialHandles from '../SocialHandles';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const navTabs = [
   {
@@ -38,6 +40,44 @@ const navTabs = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  useGSAP(() => {
+    gsap
+      .timeline({ delay: 0.5 })
+      .fromTo(
+        ['nav .logo .name', 'nav .logo .logo-icon'],
+        {
+          opacity: 0,
+          x: -100,
+        },
+        {
+          opacity: 1,
+          x: 0,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        'nav .tabs-container .tab',
+        { opacity: 0, x: 100 },
+        { opacity: 1, x: 0, stagger: 0.5 }
+      )
+      .fromTo(
+        'nav .handles-container .icon-wrapper',
+        { opacity: 0, y: -50 },
+        {
+          opacity: 1,
+          y: 0,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        'nav .contact-btn',
+        {
+          opacity: 0,
+          x: 100,
+        },
+        { opacity: 1, x: 0 }
+      );
+  });
   return (
     <nav className='flex'>
       {open ? (

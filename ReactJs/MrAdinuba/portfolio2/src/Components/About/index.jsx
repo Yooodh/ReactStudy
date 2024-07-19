@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './About.css';
 import introVideo from '../../assets/video.mp4';
 import { FaTimes } from 'react-icons/fa';
@@ -12,12 +12,97 @@ import paypalLogo from '../../assets/logos/paypal.png';
 import samsungLogo from '../../assets/logos/samsung.png';
 import skypeLogo from '../../assets/logos/skype.png';
 import whatsappLogo from '../../assets/logos/whatsapp.png';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const [openVideo, setOpenVideo] = useState(false);
+  const container = useRef();
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: container.current,
+            start: '20% bottom',
+            end: 'bottom top',
+          },
+        })
+        .fromTo(
+          [
+            '#about .section-header .sub-title',
+            '#about .section-header .heading-1',
+            '#about .section-header .muted',
+          ],
+          {
+            opacity: 0,
+            y: 60,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.5,
+          }
+        )
+        .fromTo(
+          [
+            '#about .section-header .readmore-btn',
+            '#about .section-header .play-btn',
+          ],
+          {
+            opacity: 0,
+            x: -100,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: 0.5,
+          }
+        )
+        .fromTo(
+          '#about .brands-container',
+          {
+            opacity: 0,
+            x: 100,
+          },
+          {
+            opacity: 1,
+            x: 0,
+          }
+        )
+        .fromTo(
+          '#about .education-experience-container .heading-1',
+          {
+            opacity: 0,
+            x: -50,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: 0.5,
+          }
+        )
+        .fromTo(
+          '#about .education-experience-container .contents',
+          {
+            opacity: 0,
+            x: 100,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: 0.5,
+          }
+        );
+    },
+    { scope: container }
+  );
 
   return (
-    <section id='about'>
+    <section id='about' ref={container}>
       <div className='container'>
         <div className='section-header'>
           <h3 className='sub-title primary'>About Me</h3>

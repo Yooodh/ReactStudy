@@ -3,8 +3,54 @@ import './Hero.css';
 import hero_image from '../../assets/hero.png';
 import { Link } from 'react-scroll';
 import Facts from '../Facts';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Hero = () => {
+  useGSAP(() => {
+    gsap
+      .timeline({ delay: 0.5 })
+      .fromTo(
+        '#hero .hero-image',
+        { scale: 0 },
+        {
+          scale: 1,
+          delay: 0.5,
+        }
+      )
+      .fromTo(
+        ['#hero .heading-1', '#hero .description'],
+        {
+          x: -20,
+          opacity: 0,
+        },
+        { x: 0, opacity: 1, stagger: 0.5 }
+      )
+      .fromTo(
+        '#hero .facts-container .fact',
+        {
+          x: 50,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.5,
+        }
+      )
+      .fromTo(
+        '#hero .buttons-wrapper .btn',
+        {
+          x: 50,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.5,
+        }
+      );
+  });
   return (
     <section id='hero' className='flex blur-effect'>
       <div className='container'>
