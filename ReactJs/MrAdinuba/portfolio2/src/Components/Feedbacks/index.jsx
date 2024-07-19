@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Feedbacks.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,8 +9,49 @@ import user3 from '../../assets/user-3.jpeg';
 import user4 from '../../assets/user-4.jpeg';
 import user5 from '../../assets/user-5.jpeg';
 import { FaStar } from 'react-icons/fa';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 const Feedbacks = () => {
+  const container = useRef();
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: container.current,
+            start: '20% bottom',
+            end: 'bottom top',
+          },
+        })
+        .fromTo(
+          [
+            '#feedbacks .section-header .heading-1',
+            '#feedbacks .section-header .muted',
+          ],
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.5,
+          }
+        )
+        .fromTo(
+          '#feedbacks .feedbacks-container .feed-block',
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.5,
+          },
+          '-=2.5'
+        );
+    },
+    { scope: container }
+  );
   const settings = {
     pauseOnHover: true,
     infinite: true,
@@ -33,7 +74,7 @@ const Feedbacks = () => {
     ],
   };
   return (
-    <section id='feedbacks'>
+    <section id='feedbacks' ref={container}>
       <div className='container'>
         <div className='section-header'>
           <h1 className='heading-1'>

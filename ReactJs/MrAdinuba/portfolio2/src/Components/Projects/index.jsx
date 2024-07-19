@@ -1,14 +1,51 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Projects.css';
 import project1 from '../../assets/project-1.png';
 import project2 from '../../assets/project-2.jpg';
 import project3 from '../../assets/project-3.jpg';
 import project4 from '../../assets/project-4.png';
 import { FaShare } from 'react-icons/fa';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
+  const container = useRef();
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: container.current,
+            start: '20% bottom',
+            end: 'bottom top',
+          },
+        })
+        .fromTo(
+          ['#projects .section-header .heading-1'],
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.5,
+          }
+        )
+        .fromTo(
+          '#projects .projects-container .project',
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.5,
+          }
+        );
+    },
+    { scope: container }
+  );
   return (
-    <section id='projects'>
+    <section id='projects' ref={container}>
       <div className='container'>
         <div className='section-header'>
           <h1 className='heading-1'>
