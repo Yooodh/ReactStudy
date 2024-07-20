@@ -1,12 +1,48 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Contact.css';
 import { MdEmail } from 'react-icons/md';
 import { FaMobile } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const container = useRef();
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          delay: 0.5,
+          scrollTrigger: {
+            trigger: container.current,
+            start: '20% bottom',
+            end: 'bottom top',
+          },
+        })
+        .fromTo(
+          [
+            '#contact .contact-options .heading-1',
+            '#contact .contact-options .muted',
+            '#contact .contact-options .option',
+            '#contact .contact-form .muted',
+            '#contact .contact-form .row',
+            '#contact .contact-form textarea',
+            '#contact .contact-form .bottom',
+          ],
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.5,
+          }
+        );
+    },
+    { scope: container }
+  );
   return (
-    <section id='contact'>
+    <section id='contact' ref={container}>
       <div className='container'>
         <div className='column contact-options'>
           <h1 className='heading-1'>
