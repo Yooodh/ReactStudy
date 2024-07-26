@@ -104,7 +104,7 @@ small {
   padding: 100px 20px;
 }
 
-.container .full__height {
+.container.full__height {
   min-height: 100vh;
 }
 
@@ -195,7 +195,7 @@ small {
 }
 
 @media (min-width: 1500px) {
-  .container .full__height {
+  .container.full__height {
     min-height: auto;
   }
 }
