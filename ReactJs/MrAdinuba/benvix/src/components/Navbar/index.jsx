@@ -59,6 +59,7 @@ const Navbar = () => {
             className='tab'
             activeClass='active'
             smooth={true}
+            spy={true}
             offset={-70}
             onClick={() => setOpen(false)}
             key={index}
