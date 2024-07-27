@@ -2,6 +2,7 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-scroll';
 import { hero_image } from '../../assets';
+import Achievement from '../Achievement';
 
 const Header = () => {
   return (
@@ -44,6 +45,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <Achievement />
       </div>
     </header>
   );
