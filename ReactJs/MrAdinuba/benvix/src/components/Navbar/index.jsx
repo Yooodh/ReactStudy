@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 import { navTabs } from '../../data';
 import { Link } from 'react-scroll';
@@ -6,8 +6,11 @@ import { FaTimes } from 'react-icons/fa';
 import { RiMenu3Fill } from 'react-icons/ri';
 import Logo from '../Logo';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 const Navbar = () => {
+  const container = useRef(null);
+
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
   const handleScroll = () => {
@@ -38,8 +41,19 @@ const Navbar = () => {
     }
   }, [visible]);
 
+  useGSAP(
+    () => {
+      const timeline = gsap.timeline({ stagger: 0.5 });
+      timeline
+        .from('.logo', { opacity: 0, x: -100, delay: 1 })
+        .from('.tab', { opacity: 0, stagger: 0.5 })
+        .from('.buttons', { opacity: 0, x: 100 });
+    },
+    { scope: container }
+  );
+
   return (
-    <nav className={`navbar ${visible ? 'visible' : ''}`}>
+    <nav className={`navbar ${visible ? 'visible' : ''}`} ref={container}>
       {open ? (
         <div className='sidebar__overlay' onClick={() => setOpen(!open)}></div>
       ) : (
