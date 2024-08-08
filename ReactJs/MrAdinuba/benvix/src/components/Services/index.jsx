@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Services.css';
 import { services } from '../../data';
 import ServiceCard from './ServiceCard';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
+  const container = useRef(null);
+
+  useGSAP(
+    () => {
+      const timeline = gsap.timeline({
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: container.current,
+          start: '20% bottom',
+          end: 'bottom top',
+        },
+      });
+
+      timeline
+        .from('.title', { y: -50, opacity: 0 })
+        .from('.sub__title', { y: -50, opacity: 0 })
+        .fromTo(
+          '.service__card',
+          { y: 100, opacity: 0 },
+          { opacity: 1, stagger: 0.5, y: 0 }
+        );
+    },
+    { scope: container }
+  );
+
   return (
-    <section id='services'>
+    <section id='services' ref={container}>
       <div className='container'>
         <div className='services__top'>
           <h1 className='title'>

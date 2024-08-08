@@ -1,13 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './Blog.css';
 import { blogs } from '../../data';
 import { BsCalendar2Date } from 'react-icons/bs';
 import { MdOutlineThumbUpOffAlt } from 'react-icons/md';
 import { FaRegCommentDots } from 'react-icons/fa';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 const Blog = () => {
+  const container = useRef(null);
+
+  useGSAP(
+    () => {
+      const timeline = gsap.timeline({
+        delay: 0.5,
+        scrollTrigger: {
+          trigger: container.current,
+          start: '20% bottom',
+          end: 'bottom top',
+        },
+      });
+      timeline
+        .from('.title', { y: -50, opacity: 0 })
+        .from('.sub__title', { y: -50, opacity: 0 })
+        .fromTo(
+          '.blog__card',
+          { y: 100, opacity: 0 },
+          { opacity: 1, stagger: 0.5, y: 0 }
+        );
+    },
+    { scope: container }
+  );
   return (
-    <section id='blog'>
+    <section id='blog' ref={container}>
       <div className='container'>
         <h1 className='title'>
           <span className='g-text'>Recent Blog Posts</span>
