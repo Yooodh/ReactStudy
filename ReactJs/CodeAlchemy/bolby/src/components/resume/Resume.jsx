@@ -11,7 +11,7 @@ const Resume = () => {
       <div className='resume__container grid'>
         <div className='timeline grid'>
           {Data.map((val, id) => {
-            if (val.category === 'eductaion') {
+            if (val.category === 'education') {
               return (
                 <Card
                   key={id}

@@ -18,6 +18,7 @@ const About = () => {
               rich experience in web site design and building and customization,
               also I am good at WordPress.
             </p>
+
             <a href='' className='btn'>
               Download CV
             </a>
