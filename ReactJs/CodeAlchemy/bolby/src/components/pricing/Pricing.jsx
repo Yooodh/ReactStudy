@@ -25,7 +25,8 @@ const Pricing = () => {
           </a>
         </div>
 
-        <div className='pricing__item'>
+        <div className='pricing__item best'>
+          <span className='badge'>Recommended</span>
           <img src={Image2} alt='' className='pricing__img' />
           <h3 className='pricing__plan'>Premium</h3>
           <p className='pricing__title'>
