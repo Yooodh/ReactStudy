@@ -42,7 +42,7 @@
   opacity: 0.9;
 }
 
-.work__categroy {
+.work__category {
   color: #fff;
   background-color: var(--first-color);
   border-bottom-left-radius: 0.98rem;
@@ -92,7 +92,7 @@
 }
 
 .work__card:hover .work__title,
-.work__card:hover .work__categroy {
+.work__card:hover .work__category {
   opacity: 1;
   transform: translateY(0);
 }
