@@ -12,7 +12,7 @@ const Skills = () => {
             <div className='progress__circle'>
               <CircularProgressbar
                 strokeWidth={7.5}
-                text={`${percentage}`}
+                text={`${percentage}%`}
                 value={percentage}
               />
             </div>
