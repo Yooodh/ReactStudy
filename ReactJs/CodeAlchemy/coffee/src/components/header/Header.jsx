@@ -5,6 +5,8 @@ import logo from '../../assets/logo.png';
 
 import { links } from '../../Data';
 
+import { FaStream } from 'react-icons/fa';
+
 const Header = () => {
   return (
     <header className='header'>
@@ -25,6 +27,10 @@ const Header = () => {
               );
             })}
           </ul>
+        </div>
+
+        <div className='nav__toggle'>
+          <FaStream />
         </div>
       </nav>
     </header>
