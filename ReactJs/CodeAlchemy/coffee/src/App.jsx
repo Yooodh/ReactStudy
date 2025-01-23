@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
+import Header from './components/header/Header';
 
-  return <></>;
+function App() {
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 
 export default App;
