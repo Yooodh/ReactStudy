@@ -9,6 +9,7 @@ import Menu from './components/menu/Menu';
 import Choose from './components/choose/Choose';
 import Stats from './components/stats/Stats';
 import Gallery from './components/gallery/Gallery';
+import Offer from './components/offer/Offer';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Choose />
       <Stats />
       <Gallery />
+      <Offer />
     </>
   );
 }
