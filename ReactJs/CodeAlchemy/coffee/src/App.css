@@ -21,7 +21,7 @@
   --text-color: hsl(0, 0%, 67%);
   --bg-color: hsl(0, 0%, 8%);
   --container-color: hsl(0, 0%, 6%);
-  --hsla: hsla(0, 0%, 0% 0.75);
+  --hsla: hsla(0, 0%, 0%, 0.75);
 
   /*===============
    * Typography
