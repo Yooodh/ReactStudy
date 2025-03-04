@@ -6,3 +6,9 @@
   --background: #17161b;
   --foreground: #ffffff;
 }
+
+body {
+  font-family: var(--font-inria-sans), Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+}

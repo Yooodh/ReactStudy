@@ -1,4 +1,18 @@
-import "./globals.css";
+import './globals.css';
+import { Inria_Sans } from 'next/font/google';
+import type { Metadata } from 'next';
+import Header from './_components/header/header';
+
+const inriaSans = Inria_Sans({
+  variable: '--font-inria-sans',
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+});
+
+export const metadata: Metadata = {
+  title: 'Naxos',
+  description: 'Naxos is your one stop solution for NFts',
+};
 
 export default function RootLayout({
   children,
@@ -6,8 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang='en'>
+      <body
+        className={`${inriaSans.variable} relative mx-auto box-border max-w-[1728px] px-[17px] py-[10px] antialiased`}
+      >
+        <Header />
         {children}
       </body>
     </html>
