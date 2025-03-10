@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroFrame from './hero-frame';
+import HeroMovingFrames from './hero-moving-frames';
 
 const HeroSection = () => {
   return (
@@ -27,6 +28,39 @@ const HeroSection = () => {
             animationType='scaleDown'
           />
           <span>Collect</span>
+        </div>
+
+        {/* second line */}
+        <div className='flex items-center gap-[15px]'>
+          <HeroFrame
+            height={{
+              base: 34,
+              lg: 68,
+            }}
+            width={{
+              base: 123,
+              lg: 251,
+            }}
+            bgImage='/images/hero-frame-2.png'
+            animationType='move'
+          />
+
+          <span>& Sell Extraordinary</span>
+        </div>
+
+        {/* third line */}
+        <span>Rare NFTs</span>
+      </div>
+
+      <div className='flex flex-col items-center justify-center gap-[25px]'>
+        {/* moving frames */}
+        <div>
+          <HeroMovingFrames />
+        </div>
+
+        {/* stats */}
+        <div>
+          <span>stats</span>
         </div>
       </div>
     </div>

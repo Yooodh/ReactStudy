@@ -13,7 +13,7 @@ const animations = {
   move: {
     initial: { backgroundPosition: '100% center' },
     animate: { backgroundPosition: '50% center' },
-    transition: { duration: 3, ease: 'easeInOUt' },
+    transition: { duration: 3, ease: 'easeInOut' },
   },
 };
 
