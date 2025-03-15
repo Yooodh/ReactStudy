@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import TextAnimation from '../text-animation';
 import CollectionCategory from './collection-category';
 import { COLLECTION_DATA } from '@/app/_data/collection';
+import CollcetionCard from './collection-card';
 
 const PopularCollectionSection = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -23,8 +24,13 @@ const PopularCollectionSection = () => {
 
       {/* collection cards */}
       <div className='flex flex-col flex-wrap items-center justify-start gap-[29px]'>
-        {COLLECTION_DATA.map((card, i) => (
-          <span key={i}>{card.name}</span>
+        {(selectedCategory === 'all'
+          ? COLLECTION_DATA
+          : COLLECTION_DATA.filter((card) => card.category === selectedCategory)
+        ).map((card, i) => (
+          <div>
+            <CollcetionCard card={card} />
+          </div>
         ))}
       </div>
     </div>
