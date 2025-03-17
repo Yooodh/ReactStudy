@@ -39,7 +39,7 @@ const CollectionCategory = ({
           variants={itemVariants}
           key={category.value}
           className={twMerge(
-            'cursor-pointer text-10 rounded-full border border-white/50 px-[20px] py-[8px] text-center',
+            'cursor-pointer text-10 lg:text-16 rounded-full border border-white/50 px-[20px] py-[8px] text-center lg:min-w-[100px] lg:px-[40px] lg:py-[11px]',
             selectedCategory === category.value && 'bg-primary border-none'
           )}
           onClick={() => setSelectedCategory(category.value)}

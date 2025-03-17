@@ -16,14 +16,14 @@ const CollcetionCard = ({
   };
 }) => {
   return (
-    <div className='flex w-[100%] flex-col gap-[10px] rounded-[10px] bg-white/10 p-[10px]'>
+    <div className='flex w-[100%] flex-col gap-[10px] rounded-[10px] bg-white/10 p-[10px] lg:gap-[20px] lg:w-[380px] lg:flex-1 lg:p-[20px]'>
       {/* header */}
       <div className='flex items-start justify-between'>
         {/* user info */}
 
         <div className='flex items-center gap-3'>
           {/* user image */}
-          <div className='relative h-[26px] w-[26px]'>
+          <div className='relative h-[26px] w-[26px] lg:h-[47px] lg:w-[47px]'>
             <Image
               src={card.avatar}
               alt='user'
@@ -34,16 +34,18 @@ const CollcetionCard = ({
 
           <div className='flex flex-col'>
             {/* user name */}
-            <span className='text-12'>{card.name}</span>
+            <span className='text-12 lg:text-18'>{card.name}</span>
 
             {/* user username */}
-            <span className='text-10 text-white/50'>{card.username}</span>
+            <span className='text-10 lg:text-14 text-white/50'>
+              {card.username}
+            </span>
           </div>
         </div>
 
         {/* likes counts */}
         <div className='flex items-cetner gap-2'>
-          <div className='relative h-[18px] w-[18px]'>
+          <div className='relative h-[18px] w-[18px] lg:h-[20px] lg:w-[20px]'>
             <Image
               src='/images/heart.png'
               alt='heart'
@@ -52,7 +54,7 @@ const CollcetionCard = ({
             />
           </div>
 
-          <span className='text-[11px]'>63</span>
+          <span className='text-[11px] lg:text-18'>63</span>
         </div>
       </div>
 
@@ -60,7 +62,10 @@ const CollcetionCard = ({
       <div className='grid grid-cols-2 gap-4'>
         {/* first columns with one image */}
 
-        <div className='relative w-full h-[257px] overflow-hidden'>
+        <div
+          className='relative w-full flex-1 h-[257px] overflow-hidden rounded-lg'
+          style={{ backgroundColor: card.nfts[0].bg }}
+        >
           <Image
             src={card.nfts[0].image}
             alt='collection element'
@@ -71,7 +76,10 @@ const CollcetionCard = ({
 
         {/* second column */}
         <div className='flex flex-col gap-4'>
-          <div className='relative flex-1 w-full overflow-hidden rounded-lg'>
+          <div
+            className='relative flex-1 w-full overflow-hidden rounded-lg'
+            style={{ backgroundColor: card.nfts[1].bg }}
+          >
             <Image
               src={card.nfts[1].image}
               alt='collection image'
@@ -80,7 +88,10 @@ const CollcetionCard = ({
             />
           </div>
 
-          <div className='relative flex-1 w-full overflow-hidden rounded-lg'>
+          <div
+            className='relative flex-1 w-full overflow-hidden rounded-lg'
+            style={{ backgroundColor: card.nfts[2].bg }}
+          >
             <Image
               src={card.nfts[2].image}
               alt='collection image'
