@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 const TopCollectionSection = () => {
   return (
     <div className='flex flex-col gap-[16px]'>
-      <span className='text-30 lg:text-60 px-[28px] text-center font-bold'>
+      <span className='text-30 lg:text-60 px-[28px] text-center font-bold whitespace-pre-wrap'>
         <TextAnimation delay={0.2} divideBy='letter'>
           Our Top Collection
         </TextAnimation>

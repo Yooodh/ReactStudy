@@ -11,7 +11,7 @@ const PopularCollectionSection = () => {
 
   return (
     <div className='flex flex-col gap-[29px] lg:gap-[76px]'>
-      <span className='text-30 lg:text-60 px-[15px] text-center font-bold'>
+      <span className='text-30 lg:text-60 px-[15px] text-center font-bold whitespace-pre-wrap'>
         <TextAnimation delay={0.2} divideBy='letter'>
           Get Popular Collection here
         </TextAnimation>
