@@ -1,3 +1,4 @@
+import ComapniesSection from './_components/comapnies-section/comapnies-section';
 import HeroSection from './_components/hero-section/hero-section';
 import LiveAuctionSection from './_components/live-auction-section/live-auction-section';
 import PopularCollectionSection from './_components/popular-collection-section/popular-collection-section';
@@ -12,6 +13,7 @@ export default function Home() {
       <PopularCollectionSection />
       <TopCollectionSection />
       <SubscribeSection />
+      <ComapniesSection />
     </div>
   );
 }
