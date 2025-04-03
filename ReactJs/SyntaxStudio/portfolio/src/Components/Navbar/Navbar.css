@@ -30,13 +30,14 @@
 .nav-menu li {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 1px;
   cursor: pointer;
 }
 
 .nav-menu li img {
   display: flex;
-  margin: auto;
+  margin: -30px;
+  width: 100px;
 }
 
 .anchor-link {
