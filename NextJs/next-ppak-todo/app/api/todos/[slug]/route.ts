@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { fetchATodo, deleteATodo } from '@/data/firestore';
 
 // 할일 단일 조회
 export async function GET(
@@ -10,14 +11,17 @@ export async function GET(
   // const search = searchParams.get('search');
   const query = searchParams.get('query');
 
+  const fetchedTodo = await fetchATodo(params.slug);
+
+  // 데이터가 없을 때
+  if (fetchedTodo === null) {
+    return new Response(null, { status: 204 });
+  }
+
   const response = {
     message: '단일 할일 가져오기 성공!',
     data: {
-      id: params.slug,
-      title: '오늘도 빡코딩!',
-      is_done: false,
-      // query: query,
-      query,
+      fetchedTodo,
     },
   };
 
@@ -29,6 +33,8 @@ export async function DELETE(
   request: NextRequest,
   { params }: { params: { slug: string } }
 ) {
+  await deleteATodo(params.slug);
+
   // const searchParams = request.nextUrl.searchParams;
 
   // const search = searchParams.get('search');
@@ -36,13 +42,6 @@ export async function DELETE(
 
   const response = {
     message: '단일 할일 삭제 성공!',
-    data: {
-      id: params.slug,
-      title: '오늘도 빡코딩!',
-      is_done: false,
-      // query: query,
-      // query,
-    },
   };
 
   // 데이터가 없다 -> 보통 204

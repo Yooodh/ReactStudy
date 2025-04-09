@@ -8,9 +8,11 @@ import {
   getFirestore,
   collection,
   getDocs,
+  getDoc,
   doc,
   setDoc,
   Timestamp,
+  deleteDoc,
 } from 'firebase/firestore';
 // import { initializeApp } from 'firebase/app';
 
@@ -63,7 +65,7 @@ export async function fetchTodos() {
   return fetchedTodos;
 }
 
-// 할일 추가가
+// 할일 추가
 export async function addATodo({ title }) {
   // Add a new document with a generated id
   const newTodoRef = doc(collection(db, 'todos'));
@@ -83,4 +85,37 @@ export async function addATodo({ title }) {
   return newTodoData;
 }
 
-module.exports = { fetchTodos, addATodo };
+// 단일 할일 조회
+export async function fetchATodo(id) {
+  if (id == null) {
+    return null;
+  }
+
+  const todoDocRef = doc(db, 'todos', id);
+  const todoDocSnap = await getDoc(todoDocRef);
+
+  if (todoDocSnap.exists()) {
+    console.log('Document data:', todoDocSnap.data());
+
+    const fetchedTodo = {
+      id: todoDocSnap.id,
+      title: todoDocSnap.data()['title'],
+      is_done: todoDocSnap.data()['is_done'],
+      create_at: todoDocSnap.data()['created_at'].toDate(),
+    };
+
+    return fetchedTodo;
+  } else {
+    // docSnap.data() will be undefined in this case
+    console.log('No such document!');
+    return null;
+  }
+}
+
+// 단일 할일 삭제
+export async function deleteATodo(id) {
+  await deleteDoc(doc(db, 'todos', id));
+  return null;
+}
+
+module.exports = { fetchTodos, addATodo, fetchATodo, deleteATodo };
