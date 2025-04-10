@@ -13,6 +13,7 @@ import {
   setDoc,
   Timestamp,
   deleteDoc,
+  updateDoc,
 } from 'firebase/firestore';
 // import { initializeApp } from 'firebase/app';
 
@@ -82,7 +83,12 @@ export async function addATodo({ title }) {
   // later...
   await setDoc(newTodoRef, newTodoData);
 
-  return newTodoData;
+  return {
+    id: newTodoRef.id,
+    title: title,
+    is_done: false,
+    created_at: createdAtTimestamp.toDate(),
+  };
 }
 
 // 단일 할일 조회
@@ -114,8 +120,37 @@ export async function fetchATodo(id) {
 
 // 단일 할일 삭제
 export async function deleteATodo(id) {
+  const fetchedTodo = await fetchATodo(id);
+
+  if (fetchedTodo === null) {
+    return null;
+  }
+
   await deleteDoc(doc(db, 'todos', id));
-  return null;
+  return fetchedTodo;
 }
 
-module.exports = { fetchTodos, addATodo, fetchATodo, deleteATodo };
+// 단일 할일 수정
+export async function editATodo(id, { title, is_done }) {
+  const fetchedTodo = await fetchATodo(id);
+
+  if (fetchedTodo === null) {
+    return null;
+  }
+
+  const todoRef = doc(db, 'todos', id);
+
+  // Set the "capital" field of the city 'DC'
+  await updateDoc(todoRef, {
+    title: title,
+    is_done: is_done,
+  });
+  return {
+    id: id,
+    title: title,
+    is_done: is_done,
+    created_at: fetchedTodo.create_at,
+  };
+}
+
+module.exports = { fetchTodos, addATodo, fetchATodo, deleteATodo, editATodo };
