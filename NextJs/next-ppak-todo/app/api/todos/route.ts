@@ -27,6 +27,15 @@ export async function POST(request: NextRequest) {
 
   const { title } = await request.json();
 
+  if (title === undefined) {
+    const errMessage = {
+      message: '할일을 작성해주세요',
+    };
+
+    // 서버에서 요청 시 데이터가 없을 때 422
+    return NextResponse.json(errMessage, { status: 422 });
+  }
+
   // const newTodo = {
   //   id: '10',
   //   // key와 data가 같으면 빼도 된다
