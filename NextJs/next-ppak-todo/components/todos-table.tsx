@@ -7,36 +7,27 @@ import {
   TableRow,
   TableCell,
 } from '@heroui/react';
+import { Todo } from '@/types';
 
-export const TodosTable = () => {
+export const TodosTable = ({ todos }: { todos: Todo[] }) => {
   return (
     <Table aria-label='Example static collection table'>
       <TableHeader>
-        <TableColumn>NAME</TableColumn>
-        <TableColumn>ROLE</TableColumn>
-        <TableColumn>STATUS</TableColumn>
+        <TableColumn>아이디</TableColumn>
+        <TableColumn>할일내용</TableColumn>
+        <TableColumn>완료여부</TableColumn>
+        <TableColumn>생성일</TableColumn>
       </TableHeader>
       <TableBody>
-        <TableRow key='1'>
-          <TableCell>Tony Reichert</TableCell>
-          <TableCell>CEO</TableCell>
-          <TableCell>Active</TableCell>
-        </TableRow>
-        <TableRow key='2'>
-          <TableCell>Zoey Lang</TableCell>
-          <TableCell>Technical Lead</TableCell>
-          <TableCell>Paused</TableCell>
-        </TableRow>
-        <TableRow key='3'>
-          <TableCell>Jane Fisher</TableCell>
-          <TableCell>Senior Developer</TableCell>
-          <TableCell>Active</TableCell>
-        </TableRow>
-        <TableRow key='4'>
-          <TableCell>William Howard</TableCell>
-          <TableCell>Community Manager</TableCell>
-          <TableCell>Vacation</TableCell>
-        </TableRow>
+        {todos &&
+          todos.map((aTodo: Todo) => (
+            <TableRow key={aTodo.id}>
+              <TableCell>{aTodo.id}</TableCell>
+              <TableCell>{aTodo.title}</TableCell>
+              <TableCell>{aTodo.is_done ? '완료' : '미완료'}</TableCell>
+              <TableCell>{`${aTodo.created_at}`}</TableCell>
+            </TableRow>
+          ))}
       </TableBody>
     </Table>
   );
