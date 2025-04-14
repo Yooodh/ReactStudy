@@ -59,7 +59,7 @@ export async function fetchTodos() {
       title: doc.data()['title'],
       is_done: doc.data()['is_done'],
       // create_at: doc.data()['created_at'].toDate().toLocaleTimeString('ko'),
-      create_at: doc.data()['created_at'].toDate(),
+      created_at: doc.data()['created_at'].toDate(),
     };
     fetchedTodos.push(aTodo);
   });
