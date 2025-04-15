@@ -11,9 +11,11 @@ import {
   PopoverContent,
   PopoverTrigger,
   Popover,
+  Spinner,
 } from '@heroui/react';
 import { Todo } from '@/types';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export const TodosTable = ({ todos }: { todos: Todo[] }) => {
   // 할일 추가 가능 여부
@@ -21,6 +23,35 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
 
   // 입력된 할일
   const [newTodoInput, setNewTodoInput] = useState('');
+
+  // 로딩상태
+  const [isLoading, setIsLoading] = useState<Boolean>(false);
+
+  const router = useRouter();
+
+  const addATodoHandler = async (title: string) => {
+    // if (newTodoInput.length < 1) {
+    if (!todoAddEnable) {
+      // console.log('글자를 입력하세요.');
+      return;
+    }
+
+    setIsLoading(true);
+
+    await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos`, {
+      method: 'post',
+      body: JSON.stringify({
+        title: title,
+      }),
+      cache: 'no-store',
+    });
+
+    setNewTodoInput('');
+    router.refresh();
+    setIsLoading(false);
+    setTodoAddEnable(false);
+    console.log(`할일 추가완료 : ${newTodoInput}`);
+  };
 
   const disabledTodoAddButton = () => {
     return (
@@ -51,7 +82,7 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
     );
   };
   return (
-    <>
+    <div className='flex flex-col space-y-2'>
       <div className='flex w-full flex-wrap md:flex-nowrap gap-4'>
         <Input
           label='새로운 할일'
@@ -64,13 +95,23 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
         />
 
         {todoAddEnable ? (
-          <Button color='warning' className='h-14'>
+          <Button
+            color='warning'
+            className='h-14'
+            onPress={async () => {
+              await addATodoHandler(newTodoInput);
+            }}
+          >
             추가
           </Button>
         ) : (
           disabledTodoAddButton()
         )}
       </div>
+      <div className='h-6'>
+        {isLoading && <Spinner size='sm' color='warning' />}
+      </div>
+
       <Table aria-label='Example static collection table'>
         <TableHeader>
           <TableColumn>아이디</TableColumn>
@@ -82,6 +123,6 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
           {todos && todos.map((aTodo: Todo) => TodoRow(aTodo))}
         </TableBody>
       </Table>
-    </>
+    </div>
   );
 };
