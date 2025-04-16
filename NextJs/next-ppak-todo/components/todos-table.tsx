@@ -16,6 +16,7 @@ import {
 import { Todo } from '@/types';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
 
 export const TodosTable = ({ todos }: { todos: Todo[] }) => {
   // 할일 추가 가능 여부
@@ -36,7 +37,10 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
       return;
     }
 
+    setTodoAddEnable(false);
     setIsLoading(true);
+
+    await new Promise((f) => setTimeout(f, 600));
 
     await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/todos`, {
       method: 'post',
@@ -49,7 +53,7 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
     setNewTodoInput('');
     router.refresh();
     setIsLoading(false);
-    setTodoAddEnable(false);
+    notifyTodoAddedEvent('할일이 성공적으로 추가되었습니다.');
     console.log(`할일 추가완료 : ${newTodoInput}`);
   };
 
@@ -81,8 +85,26 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
       </TableRow>
     );
   };
+
+  const notifyTodoAddedEvent = (msg: string) => toast.success(msg);
+
   return (
     <div className='flex flex-col space-y-2'>
+      {/* <div> */}
+      {/* <button onClick={notify}>Notify!</button> */}
+      <ToastContainer
+        position='top-right'
+        autoClose={1800}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
+      {/* </div> */}
       <div className='flex w-full flex-wrap md:flex-nowrap gap-4'>
         <Input
           label='새로운 할일'
