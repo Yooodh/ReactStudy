@@ -17,7 +17,7 @@ import {
 } from 'firebase/firestore';
 // import { initializeApp } from 'firebase/app';
 
-import {} from 'firebase/firestore';
+import { query, orderBy } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 // 환경변수 설정
@@ -38,10 +38,14 @@ const db = getFirestore(app);
 
 // 모든 할일 가져오기
 export async function fetchTodos() {
+  const todosRef = collection(db, 'todos');
+
+  const descQuery = query(todosRef, orderBy('created_at', 'desc'));
+
   // const q = query(collection(db, 'cities'), where('capital', '==', true));
 
   // const querySnapshot = await getDocs(q);
-  const querySnapshot = await getDocs(collection(db, 'todos'));
+  const querySnapshot = await getDocs(descQuery);
 
   // querySnapshot에 아무것도 없으면 return
   if (querySnapshot.empty) {
