@@ -12,11 +12,16 @@ import {
   PopoverTrigger,
   Popover,
   Spinner,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
 } from '@heroui/react';
 import { Todo } from '@/types';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { ToastContainer, toast } from 'react-toastify';
+import { VerticalDotsIcon } from './icons';
 
 export const TodosTable = ({ todos }: { todos: Todo[] }) => {
   // 할일 추가 가능 여부
@@ -82,6 +87,23 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
         <TableCell>{aTodo.title}</TableCell>
         <TableCell>{aTodo.is_done ? '완료' : '미완료'}</TableCell>
         <TableCell>{`${aTodo.created_at}`}</TableCell>
+        <TableCell>
+          {' '}
+          <div className='relative flex justify-end items-center gap-2'>
+            <Dropdown className='bg-background border-1 border-default-200'>
+              <DropdownTrigger>
+                <Button isIconOnly radius='full' size='sm' variant='light'>
+                  <VerticalDotsIcon className='text-default-400' />
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu>
+                <DropdownItem key='view'>상세보기</DropdownItem>
+                <DropdownItem key='edit'>수정</DropdownItem>
+                <DropdownItem key='delete'>삭제</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
+        </TableCell>
       </TableRow>
     );
   };
@@ -140,6 +162,7 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
           <TableColumn>할일내용</TableColumn>
           <TableColumn>완료여부</TableColumn>
           <TableColumn>생성일</TableColumn>
+          <TableColumn>액션</TableColumn>
         </TableHeader>
         <TableBody emptyContent={'보여줄 데이터가 없습니다.'}>
           {todos && todos.map((aTodo: Todo) => TodoRow(aTodo))}
