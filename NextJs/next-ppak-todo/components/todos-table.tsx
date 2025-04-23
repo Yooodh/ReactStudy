@@ -28,6 +28,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import { VerticalDotsIcon } from "./icons";
+import CustomModal from "./custom-modal";
 
 export const TodosTable = ({ todos }: { todos: Todo[] }) => {
   // 할일 추가 가능 여부
@@ -118,7 +119,7 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
                 }}
               >
                 <DropdownItem key="detail">상세보기</DropdownItem>
-                <DropdownItem key="update">수정</DropdownItem>
+                <DropdownItem key="edit">수정</DropdownItem>
                 <DropdownItem key="delete">삭제</DropdownItem>
               </DropdownMenu>
             </Dropdown>
@@ -141,41 +142,15 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
         onOpenChange={onOpenChange}
       >
         <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
-              </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
-            </>
-          )}
+          {(onClose) =>
+            currentModalData.focusedTodo && (
+              <CustomModal
+                focusedTodo={currentModalData.focusedTodo}
+                modalType={currentModalData.modalType}
+                onClose={onClose}
+              />
+            )
+          }
         </ModalContent>
       </Modal>
     );
