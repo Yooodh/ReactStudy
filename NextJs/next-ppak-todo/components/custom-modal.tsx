@@ -10,7 +10,7 @@ import {
   Checkbox,
 } from "@heroui/react";
 import { CustomModalType, FocusedTodoType, Todo } from "@/types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import { VerticalDotsIcon } from "./icons";
@@ -22,12 +22,26 @@ const CustomModal = ({
   focusedTodo,
   modalType,
   onClose,
+  onEdit,
 }: {
   focusedTodo: Todo;
   modalType: CustomModalType;
   onClose: () => void;
+  onEdit: (id: string, title: string, isDone: boolean) => void;
 }) => {
-  const [isDone, setIsDone] = useState<Boolean>(false);
+  // 수정된 선택
+  const [isDone, setIsDone] = useState(focusedTodo.is_done);
+
+  // 수정된 할일 입력
+  const [editedTodoInput, setEditedTodoInput] = useState<string>(
+    focusedTodo.title
+  );
+
+  // const [editedTodoInput, setEditedTodoInput] = useState<string>("");
+
+  // useEffect(() => {
+  //   setEditedTodoInput(focusedTodo.title);
+  // }, []);
 
   const DetailModal = () => {
     return (
@@ -57,20 +71,30 @@ const CustomModal = ({
             <span className="font-bold">id : </span>
             {focusedTodo.id}
           </p>
+          <p>
+            입력된 할일: {editedTodoInput} 완료 여부: {`isDone: ${isDone}`}
+          </p>
           <Input
             autoFocus
             label="할일 내용"
             placeholder="할일을 입력해주세요"
             variant="bordered"
+            isRequired
             defaultValue={focusedTodo.title}
+            value={editedTodoInput}
+            onValueChange={setEditedTodoInput}
           />
 
           <div className="flex py-2  space-x-4">
             <span className="font-bold">완료여부 : </span>
             <Switch
               defaultSelected={focusedTodo.is_done}
+              color="warning"
+              onValueChange={setIsDone}
               aria-label="Automatic updates"
             ></Switch>
+
+            {`${isDone ? "완료" : "미완료"}`}
           </div>
 
           <div className="flex py-1 space-x-4">
@@ -79,10 +103,16 @@ const CustomModal = ({
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" variant="flat" onPress={onClose}>
+          <Button
+            color="warning"
+            variant="flat"
+            onPress={() => {
+              onEdit(focusedTodo.id, editedTodoInput, isDone);
+            }}
+          >
             수정
           </Button>
-          <Button color="primary" onPress={onClose}>
+          <Button color="default" onPress={onClose}>
             닫기
           </Button>
         </ModalFooter>

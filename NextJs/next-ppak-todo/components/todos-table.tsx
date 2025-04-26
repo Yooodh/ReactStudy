@@ -148,6 +148,9 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
                 focusedTodo={currentModalData.focusedTodo}
                 modalType={currentModalData.modalType}
                 onClose={onClose}
+                onEdit={(id, title, isDone) => {
+                  console.log(id, title, isDone);
+                }}
               />
             )
           }
