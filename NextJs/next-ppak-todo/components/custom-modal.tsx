@@ -8,6 +8,7 @@ import {
   Modal,
   ModalContent,
   Checkbox,
+  CircularProgress,
 } from "@heroui/react";
 import { CustomModalType, FocusedTodoType, Todo } from "@/types";
 import { useEffect, useState } from "react";
@@ -31,6 +32,9 @@ const CustomModal = ({
 }) => {
   // 수정된 선택
   const [isDone, setIsDone] = useState(focusedTodo.is_done);
+
+  // 로딩 상태
+  const [isLoading, setIsLoading] = useState(focusedTodo.is_done);
 
   // 수정된 할일 입력
   const [editedTodoInput, setEditedTodoInput] = useState<string>(
@@ -107,10 +111,19 @@ const CustomModal = ({
             color="warning"
             variant="flat"
             onPress={() => {
+              setIsLoading(true);
               onEdit(focusedTodo.id, editedTodoInput, isDone);
             }}
           >
-            수정
+            {isLoading ? (
+              <CircularProgress
+                color="warning"
+                aria-label="Loading..."
+                size="sm"
+              />
+            ) : (
+              "수정"
+            )}
           </Button>
           <Button color="default" onPress={onClose}>
             닫기
