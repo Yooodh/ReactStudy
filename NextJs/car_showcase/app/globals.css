@@ -1,13 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import "tailwindcss";
 
-/* v4에서는 지원되지 않는다. */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+/* Tailwind v4에서는 @tailwind base/components/utilities 대신 위 한 줄만 사용 */
 
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
-
+/* 기본 폰트 설정 */
 * {
   margin: 0;
   padding: 0;
@@ -15,209 +11,535 @@
   font-family: "Manrope", sans-serif;
 }
 
-/* START: General styles */
+/* 커스텀 유틸리티 (필요시 HTML에서 직접 Tailwind 클래스를 사용하는 것이 권장됨) */
 .max-width {
-  @apply max-w-[1440px] mx-auto;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .padding-x {
-  @apply sm:px-16 px-6;
+  padding-left: 1.5rem; /* px-6 */
+  padding-right: 1.5rem;
+}
+@media (min-width: 640px) {
+  .padding-x {
+    padding-left: 4rem; /* sm:px-16 */
+    padding-right: 4rem;
+  }
 }
 
 .padding-y {
-  @apply py-4;
+  padding-top: 1rem; /* py-4 */
+  padding-bottom: 1rem;
 }
 
 .flex-center {
-  @apply flex items-center justify-center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .flex-between {
-  @apply flex justify-between items-center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .custom-btn {
-  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem; /* py-3 px-6 */
+  outline: none;
 }
-/* END: General styles */
 
-/* START: Hero styles */
+/* Hero styles */
 .hero {
-  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* gap-5 */
+  position: relative;
+  z-index: 0;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1280px) {
+  .hero {
+    flex-direction: row;
+  }
 }
 
 .hero__title {
-  @apply 2xl:text-[72px] sm:text-[64px] text-[50px] font-extrabold;
+  font-size: 3.125rem; /* text-[50px] */
+  font-weight: 800; /* font-extrabold */
+}
+@media (min-width: 640px) {
+  .hero__title {
+    font-size: 4rem; /* sm:text-[64px] */
+  }
+}
+@media (min-width: 1536px) {
+  .hero__title {
+    font-size: 4.5rem; /* 2xl:text-[72px] */
+  }
 }
 
 .hero__subtitle {
-  @apply text-[27px] text-black-100 font-light mt-5;
+  font-size: 1.6875rem; /* text-[27px] */
+  color: #111; /* text-black-100 */
+  font-weight: 300; /* font-light */
+  margin-top: 1.25rem; /* mt-5 */
 }
 
 .hero__image-container {
-  @apply xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  height: 590px;
+}
+@media (min-width: 1280px) {
+  .hero__image-container {
+    flex: 1.5;
+    height: 100vh;
+  }
 }
 
 .hero__image {
-  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0;
+  position: relative;
+  width: 90%;
+  height: 590px;
+  z-index: 0;
+}
+@media (min-width: 1280px) {
+  .hero__image {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .hero__image-overlay {
-  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-hero-bg bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+  position: absolute;
+  right: 25%;
+  background-repeat: round;
+  z-index: -10;
+  width: 100%;
+  height: 590px;
+  overflow: hidden;
 }
-/* END: Hero styles */
+@media (min-width: 1280px) {
+  .hero__image-overlay {
+    top: -6rem;
+    right: -50%;
+    height: 100vh;
+  }
+}
 
-/* START: Home styles */
-
+/* Home styles */
 .home__text-container {
-  @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.625rem; /* gap-y-2.5 */
+  color: #111; /* text-black-100 */
 }
 
 .home__filters {
-  @apply mt-12 w-full flex-between items-center flex-wrap gap-5;
+  margin-top: 3rem; /* mt-12 */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem; /* gap-5 */
 }
 
 .home__filter-container {
-  @apply flex justify-start flex-wrap items-center gap-2;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
 }
 
 .home__cars-wrapper {
-  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+  gap: 2rem; /* gap-8 */
+  padding-top: 3.5rem; /* pt-14 */
+}
+@media (min-width: 768px) {
+  .home__cars-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1280px) {
+  .home__cars-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1536px) {
+  .home__cars-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .home__error-container {
-  @apply mt-16 flex justify-center items-center flex-col gap-2;
+  margin-top: 4rem; /* mt-16 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem; /* gap-2 */
 }
-/* END: Home styles */
 
-/* START: Car Card styles */
+/* Car Card styles */
 .car-card {
-  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem; /* p-6 */
+  justify-content: center;
+  align-items: flex-start;
+  color: #111; /* text-black-100 */
+  background: #e0e7ff; /* bg-primary-blue-100 */
+  border-radius: 1.5rem; /* rounded-3xl */
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.car-card:hover {
+  background: #fff;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
 }
 
 .car-card__content {
-  @apply w-full flex justify-between items-start gap-2;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem; /* gap-2 */
 }
 
 .car-card__content-title {
-  @apply text-[22px] leading-[26px] font-bold capitalize;
+  font-size: 1.375rem; /* text-[22px] */
+  line-height: 1.625rem; /* leading-[26px] */
+  font-weight: 700; /* font-bold */
+  text-transform: capitalize;
 }
 
 .car-card__price {
-  @apply flex mt-6 text-[32px] leading-[38px] font-extrabold;
+  display: flex;
+  margin-top: 1.5rem; /* mt-6 */
+  font-size: 2rem; /* text-[32px] */
+  line-height: 2.375rem; /* leading-[38px] */
+  font-weight: 800; /* font-extrabold */
 }
 
 .car-card__price-dollar {
-  @apply self-start text-[14px] leading-[17px] font-semibold;
+  align-self: flex-start;
+  font-size: 0.875rem; /* text-[14px] */
+  line-height: 1.0625rem; /* leading-[17px] */
+  font-weight: 600; /* font-semibold */
 }
 
 .car-card__price-day {
-  @apply self-end text-[14px] leading-[17px] font-medium;
+  align-self: flex-end;
+  font-size: 0.875rem;
+  line-height: 1.0625rem;
+  font-weight: 500; /* font-medium */
 }
 
 .car-card__image {
-  @apply relative w-full h-40 my-3 object-contain;
+  position: relative;
+  width: 100%;
+  height: 10rem; /* h-40 */
+  margin: 0.75rem 0; /* my-3 */
+  object-fit: contain;
 }
 
 .car-card__icon-container {
-  @apply flex group-hover:invisible w-full justify-between text-grey;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  color: #aaa; /* text-grey */
 }
 
 .car-card__icon {
-  @apply flex flex-col justify-center items-center gap-2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
 }
 
 .car-card__icon-text {
-  @apply text-[14px] leading-[17px];
+  font-size: 0.875rem; /* text-[14px] */
+  line-height: 1.0625rem; /* leading-[17px] */
 }
 
 .car-card__btn-container {
-  @apply hidden group-hover:flex absolute bottom-0 w-full z-10;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
 }
-/* END: Car Card styles */
+.car-card:hover .car-card__btn-container {
+  display: flex;
+}
 
-/* START: Car Details styles */
+/* Car Details styles */
 .car-details__dialog-panel {
-  @apply relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5;
+  position: relative;
+  width: 100%;
+  max-width: 32rem; /* max-w-lg */
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 1rem; /* rounded-2xl */
+  background: #fff;
+  padding: 1.5rem; /* p-6 */
+  text-align: left;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* gap-5 */
 }
 
 .car-details__close-btn {
-  @apply absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full;
+  position: absolute;
+  top: 0.5rem; /* top-2 */
+  right: 0.5rem;
+  z-index: 10;
+  width: fit-content;
+  padding: 0.5rem; /* p-2 */
+  background: #e0e7ff; /* bg-primary-blue-100 */
+  border-radius: 9999px;
 }
 
 .car-details__main-image {
-  @apply relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg;
+  position: relative;
+  width: 100%;
+  height: 10rem; /* h-40 */
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem; /* rounded-lg */
 }
-/* END: Car Details styles */
 
-/* START: Custom Filter styles */
+/* Custom Filter styles */
 .custom-filter__btn {
-  @apply relative w-full min-w-[127px] flex justify-between items-center cursor-default rounded-lg bg-white py-2 px-3 text-left shadow-md sm:text-sm border;
+  position: relative;
+  width: 100%;
+  min-width: 127px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: default;
+  border-radius: 0.5rem; /* rounded-lg */
+  background: #fff;
+  padding: 0.5rem 0.75rem; /* py-2 px-3 */
+  text-align: left;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+  font-size: 0.875rem; /* sm:text-sm */
+  border: 1px solid #e5e7eb;
 }
 
 .custom-filter__options {
-  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+  position: absolute;
+  margin-top: 0.25rem; /* mt-1 */
+  max-height: 15rem; /* max-h-60 */
+  width: 100%;
+  overflow: auto;
+  border-radius: 0.375rem; /* rounded-md */
+  background: #fff;
+  padding: 0.25rem 0; /* py-1 */
+  font-size: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  z-index: 20;
 }
-/* END: Custom Filter styles */
 
-/* START: Footer styles */
+/* Footer styles */
 .footer {
-  @apply flex flex-col text-black-100  mt-5 border-t border-gray-100;
+  display: flex;
+  flex-direction: column;
+  color: #111; /* text-black-100 */
+  margin-top: 1.25rem; /* mt-5 */
+  border-top: 1px solid #f3f4f6; /* border-t border-gray-100 */
 }
 
 .footer__links-container {
-  @apply flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.25rem; /* gap-5 */
+  padding: 2.5rem 1.5rem; /* py-10 px-6 */
+}
+@media (min-width: 640px) {
+  .footer__links-container {
+    padding-left: 4rem; /* sm:px-16 */
+    padding-right: 4rem;
+  }
+}
+@media (max-width: 768px) {
+  .footer__links-container {
+    flex-direction: column;
+  }
 }
 
 .footer__rights {
-  @apply flex flex-col justify-start items-start gap-6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem; /* gap-6 */
 }
 
 .footer__links {
-  @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 5rem; /* gap-20 */
+}
+@media (max-width: 768px) {
+  .footer__links {
+    margin-top: 2.5rem; /* max-md:mt-10 */
+  }
 }
 
 .footer__link {
-  @apply flex flex-col gap-6 text-base min-w-[170px];
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* gap-6 */
+  font-size: 1rem; /* text-base */
+  min-width: 170px;
 }
 
 .footer__copyrights {
-  @apply flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 2.5rem; /* mt-10 */
+  border-top: 1px solid #f3f4f6;
+  padding: 2.5rem 1.5rem; /* py-10 px-6 */
+}
+@media (min-width: 640px) {
+  .footer__copyrights {
+    padding-left: 4rem; /* sm:px-16 */
+    padding-right: 4rem;
+  }
 }
 
 .footer__copyrights-link {
-  @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem; /* gap-10 */
 }
-/* END: Footer styles */
+@media (min-width: 640px) {
+  .footer__copyrights-link {
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 640px) {
+  .footer__copyrights-link {
+    margin-top: 1rem; /* max-sm:mt-4 */
+  }
+}
 
-/* START: searchbar styles */
+/* Searchbar styles */
 .searchbar {
-  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  max-width: 48rem; /* max-w-3xl */
+  gap: 1rem;
+}
+@media (max-width: 640px) {
+  .searchbar {
+    flex-direction: column;
+    gap: 1rem; /* max-sm:gap-4 */
+  }
 }
 
 .searchbar__item {
-  @apply flex-1 max-sm:w-full flex justify-start items-center relative;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  width: 100%;
 }
 
 .searchbar__input {
-  @apply w-full h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm;
+  width: 100%;
+  height: 3rem; /* h-[48px] */
+  padding-left: 3rem; /* pl-12 */
+  padding: 1rem; /* p-4 */
+  background: #f3f4f6; /* bg-light-white */
+  border-radius: 9999px 9999px 9999px 9999px; /* rounded-r-full */
+  outline: none;
+  cursor: pointer;
+  font-size: 0.875rem; /* text-sm */
 }
-/* END: searchbar styles */
+@media (max-width: 640px) {
+  .searchbar__input {
+    border-radius: 9999px; /* max-sm:rounded-full */
+  }
+}
 
-/* START: search manufacturer styles */
+/* Search manufacturer styles */
 .search-manufacturer {
-  @apply flex-1 max-sm:w-full flex justify-start items-center;
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 }
 
 .search-manufacturer__input {
-  @apply w-full h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer text-sm;
+  width: 100%;
+  height: 3rem;
+  padding-left: 3rem;
+  padding: 1rem;
+  border-radius: 9999px 0 0 9999px;
+  background: #f3f4f6;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+@media (max-width: 640px) {
+  .search-manufacturer__input {
+    border-radius: 9999px;
+  }
 }
 
 .search-manufacturer__options {
-  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+  position: absolute;
+  margin-top: 0.25rem;
+  max-height: 15rem;
+  width: 100%;
+  overflow: auto;
+  border-radius: 0.375rem;
+  background: #fff;
+  padding: 0.25rem 0;
+  font-size: 1rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  outline: none;
+  z-index: 20;
 }
 
 .search-manufacturer__option {
-  @apply cursor-default select-none py-2 pl-10 pr-4;
+  cursor: default;
+  user-select: none;
+  padding: 0.5rem 1rem 0.5rem 2.5rem; /* py-2 pl-10 pr-4 */
 }
-/* END: search manufacturer styles */
