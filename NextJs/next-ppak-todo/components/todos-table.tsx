@@ -154,7 +154,7 @@ export const TodosTable = ({ todos }: { todos: Todo[] }) => {
   };
 
   const applyIsDoneUI = (isDone: boolean) =>
-    isDone ? "line-through text-gray-900/50 dark: text-white/40" : "";
+    isDone ? "line-through text-gray-900/50 dark:text-white/40" : "";
 
   const TodoRow = (aTodo: Todo) => {
     return (
